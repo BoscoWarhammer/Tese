@@ -1,0 +1,12 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
+    \KwIn{posição dos corpos}
+    \KwOut{lista de Vizinhos}
+    Dividir o espaço em regiões\;
+    \ForEach{corpo}{
+        Inserir o corpo na lista da região que pertence\;
+        Inserir o corpo nas listas adjacentes da região que pertence\;
+    }
+    \caption{Algoritmo para criação da lista de corpos vizinhos. Retirado de \cite{Dissertacao}.}
+    \label{alg:vizinhos}
+\end{algorithm}

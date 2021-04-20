@@ -1,0 +1,14 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
+    \Input{perfil de velocidades e cisalhamento do fluido, forças de arrasto e arquimedes nos grãos, passos de tempo $\Delta t$ e de espaço $\Delta y$}
+    \Output{estado do fluido para o próximo passo de tempo}
+    \ForEach{corpo}{
+        Calcula as pressões dos corpos no fluido\;
+    }
+    \ForAll{fluido}{
+        Calcula o cisalhamento do fluido\;
+        Atualiza a velocidade do fluido\;
+    }
+    \caption{Rotina que atualiza os estados do fluido para o próximo passo de tempo.}
+    \label{alg:fluido}
+\end{algorithm}

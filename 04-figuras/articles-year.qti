@@ -1,0 +1,176 @@
+QtiPlot 0.9.8 project file
+<scripting-lang>	muParser
+<windows>	2
+<table>
+Tabela1	70	2	03/04/18 10:05
+geometry	0	0	445	220	
+header	1[X]	2[Y]
+ColWidth	100	100	
+<com>
+</com>
+ColType	0;0/14	0;0/14
+ReadOnlyColumn	0	0
+HiddenColumn	0	0
+Comments			
+WindowLabel		2
+<data>
+0	1946	1
+1	1947	1
+2	1948	1
+3	1949	1
+4	1950	1
+5	1951	1
+6	1952	1
+7	1953	2
+8	1956	1
+9	1957	2
+10	1959	1
+11	1960	1
+12	1961	1
+13	1962	2
+14	1963	3
+15	1964	5
+16	1965	8
+17	1966	8
+18	1967	9
+19	1968	9
+20	1969	12
+21	1970	12
+22	1971	12
+23	1972	13
+24	1973	14
+25	1974	5
+26	1975	9
+27	1976	10
+28	1977	10
+29	1978	16
+30	1979	15
+31	1980	18
+32	1981	14
+33	1982	22
+34	1983	20
+35	1984	14
+36	1985	20
+37	1986	1
+38	1987	4
+39	1988	20
+40	1989	29
+41	1990	30
+42	1991	69
+43	1992	74
+44	1993	89
+45	1994	100
+46	1995	74
+47	1996	92
+48	1997	241
+49	1998	165
+50	1999	191
+51	2000	198
+52	2001	238
+53	2002	192
+54	2003	270
+55	2004	254
+56	2005	264
+57	2006	327
+58	2007	328
+59	2008	331
+60	2009	467
+61	2010	441
+62	2011	411
+63	2012	432
+64	2013	574
+65	2014	460
+66	2015	599
+67	2016	589
+68	2017	645
+69	2018	124
+</data>
+</table>
+<multiLayer>
+Gráfico1	1	1	03/04/18 10:26
+geometry	445	0	507	439	active
+WindowLabel		2
+Margins	5	5	5	5
+Spacing	5	5
+LayerCanvasSize	400	300
+Alignement	0	0
+<AlignPolicy>0</AlignPolicy>
+<CommonAxes>0</CommonAxes>
+<graph>
+ggeometry	5	5	489	378
+<PageGeometry>0.01002	0.0127226	0.97996	0.961832</PageGeometry>
+PlotTitle	Artigos contendo "Materiais Granulares"	#000000	4228
+<Antialiasing>0</Antialiasing>
+<Autoscaling>1</Autoscaling>
+<ScaleFonts>1</ScaleFonts>
+<GridOnTop>0</GridOnTop>
+<MissingDataGap>1</MissingDataGap>
+Background	#ffffff	0
+Margin	0
+Border	0	#000000
+grid	0	0	0	0	#0000ff	0	0.5	#a0a0a4	2	0.4	#0000ff	0	0.5	#a0a0a4	2	0.4	0	0	2	0	0
+EnabledAxes	1	1	1	1	
+AxesTitles	Ano	Produção Científica		 	
+AxesTitleColors	#000000	#000000	#000000	#000000	
+AxesTitleAlignment	5124	5124	5124	5124
+AxesTitleDistance	2	2	2	2
+InvertedTitle	0	0	0	0
+TitleFont	Sans Serif	11	75	0	0	0
+ScaleFont0	Sans Serif	9	75	0	0	0
+ScaleFont1	Sans Serif	9	75	0	0	0
+ScaleFont2	Sans Serif	9	75	0	0	0
+ScaleFont3	Sans Serif	9	75	0	0	0
+AxisFont0	Sans Serif	9	50	0	0	0
+AxisFont1	Sans Serif	9	50	0	0	0
+AxisFont2	Sans Serif	9	50	0	0	0
+AxisFont3	Sans Serif	9	50	0	0	0
+AxesColors	#000000	#000000	#000000	#000000
+AxesNumberColors	#000000	#000000	#000000	#000000
+AxesBaseline	0	0	0	0	
+CanvasBackground	#ffffff	0
+curve	Tabela1_1	Tabela1_2	0	1	#000000	0	1	7	0	#000000	#000000	0	#000000	14	1	2	0	0	69	1
+scale	0	1	700	0	4	5	1	0
+scale	1	1	700	0	4	5	1	0
+scale	2	1940	2020	0	9	5	0	0
+scale	3	1940	2020	0	9	5	0	0
+LabelsFormat	0	6	0	6	0	6	0	6
+AxisType	0	0	0	0	
+MajorTicks	1	1	1	1
+MinorTicks	1	1	1	1
+TicksLength	5	9
+DrawAxesBackbone	1	1	1	1	1
+AxesLineWidth	1
+LabelsRotation	0	0	0	0
+LabelsPrefix				
+LabelsSuffix				
+TickLabelsSpace	4	4	4	4
+ShowTicksPolicy	0	0	0	0
+EnabledTickLabels	1	0	1	0
+<Legend>
+<Frame>1</Frame>
+<Color>#000000</Color>
+<FrameWidth>1</FrameWidth>
+<LineStyle>0</LineStyle>
+<x>1942.0050125313</x>
+<y>673.24414715719</y>
+<right>1961.85463659148</right>
+<bottom>595.652173913043</bottom>
+<attachTo>1</attachTo>
+<onTop>1</onTop>
+<visible>1</visible>
+<Text>
+\l(1)Web of Science
+</Text>
+<Font>Sans Serif	9	50	0	0	0</Font>
+<TextColor>#000000</TextColor>
+<Background>#ffffff</Background>
+<Alpha>0</Alpha>
+<Angle>0</Angle>
+<AutoUpdate>1</AutoUpdate>
+<TeXOutput>0</TeXOutput>
+</Legend>
+</graph>
+<LinkXAxes>0</LinkXAxes>
+<ScaleLayers>1</ScaleLayers>
+</multiLayer>
+<open>1</open>

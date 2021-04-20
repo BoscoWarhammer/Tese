@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+  \pgfmathsetseed{1}
+      \draw[very thick,xstep=.2,ystep=.2] (0,0) rectangle (1,1);
+      \draw[help lines,xstep=.2,ystep=.2] (0,0) grid (1,1);
+      %\foreach \x in {1,...,5} { \node [anchor=north] at (\x/5 -0.1,0) {\x}; \node [anchor=south] at (\x/5 -0.1,1) {\x}; }
+      %\foreach \y in {1,...,5} { \node [anchor=east] at (0,\y/5 -0.1) {\y}; \node [anchor=west] at (1,\y/5 -0.1) {\y}; }
+
+      \node (A) at (0.45,0.45) {\scriptsize A};
+      \fill[green] (A) circle (0.035);
+      \foreach \x in {0,...,4}
+	\foreach \y in {0,...,4}
+	{
+	  \pgfmathsetmacro\result{(\x+1) +\y *5};
+	  \node (\x_\y) at (\x/5 +0.1+0.05*rand, \y/5 +0.1+0.05*rand) {\scriptsize \pgfmathprintnumber{\result}};
+	  \draw (\x_\y) circle (0.035);
+	}
+      \foreach \x in {1,...,3}
+	\foreach \y in {1,...,3}
+	{
+	  \draw[red, very thick] [->] (A) -- (\x_\y);
+	}
+	
+  \end{tikzpicture}

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=5.3,cap=round,>=latex]
+  \draw[->] (0.63345,-0.63345) -- (0.35,-0.35) node[above] {$\vec{n}$}; % Equation: y = -x
+  \draw[->] (0.63345,-0.63345) -- (1.227577609,-0.039322391) node[right] {$\vec{t}$}; % Equation: y = x -1.2669
+
+  \draw[-, red] (0.530330086,-0.530330086) -- (0.707106781,-0.707106781) node[right,fill=white] {$\delta^{\perp}$};
+
+  % draw the first (i) circle
+  \draw[thick] (0,0) circle(1);
+
+  % draw the second (j) circle
+  \draw[thick] (1.060660172,-1.060660172) circle(0.75);
+
+  \draw (-0.15,-0.15) node[above,fill=white] {$i$};
+  \draw (1.060660172,-1.060660172) node[above,fill=white] {$j$};
+
+  % draw the radius (i)
+  \draw[->] (0,0) -- (0.5, 0.866025404) node[above] {$R_{i}$};
+
+  % draw the radius (j)
+  \draw[->] (1.060660172,-1.060660172) -- (1.590990258,-1.590990258) node[below] {$R_{j}$};
+\end{tikzpicture}

@@ -1,0 +1,57 @@
+%---------------------------------- CAPITULO VI ------------------------------%
+%\thispagestyle{empty}
+\chapter{Cronograma e Plano de Estudos}
+\section{Cronograma}
+\label{ch:Chronogram}
+
+    Apresentamos uma proposta de doutorado sanduíche para iniciar dos trabalhos com o prof. Dr. Philippe Claudin, do laboratório \textit{Physique et Méchanique des Milliex Hétérogènes} (PMMH) da \textit{École Superieure de Physique et Chemie Industrielles de la ville de Paris} (ESPCI) em Setembro de 2018 e retornar ao Brasil em Julho de 2019. A tabela \ref{tab:CronogramaFRA} contém a proposta das atividades do doutorado sanduíche. Pretende-se contribuir com o desenvolvimento científico através da escrita de ao menos um artigo, publicado em periódico que possua alto fator de impacto ao final desta parceria.
+
+\setlength{\tabcolsep}{3pt}
+
+\begin{table}[h]
+    \begin{tabular}{| l|c|c|c|c|c|c|c|c|c|c|c |}
+        \textbf{Atividades} & \multicolumn{11}{c}{\textbf{Mês do ano}}                                       \\
+                                           & Set & Out & Nov & Dez & Jan & Fev & Mar & Abr & Mai & Jun & Jul \\
+\hline        Revisão bibliográfica        &  X  &  X  &  X  &  X  &  X  &  X  &  X  &  X  &     &     &     \\
+\hline        Equacionamento do modelo     &  X  &  X  &  X  &  X  &  X  &     &     &     &     &     &     \\
+\hline        Escrita do código fonte      &     &  X  &  X  &  X  &  X  &  X  &  X  &  X  &  X  &     &     \\
+\hline        Validação do modelo          &     &     &  X  &  X  &  X  &  X  &  X  &  X  &  X  &  X  &     \\
+\hline        Escrita da tese              &     &     &  X  &  X  &  X  &  X  &  X  &  X  &  X  &  X  &  X  \\
+\hline        Resultados preliminares      &     &     &  X  &  X  &     &     &     &     &     &     &     \\
+\hline        Ajustes dos parâmetros       &     &     &     &     &     &  X  &  X  &  X  &     &     &     \\
+\hline        Análise dos resultados finais&     &     &     &     &     &     &     &  X  &  X  &  X  &  X  \\
+\hline \hline Participação em congresso    &     &     &     &     &  X  &  X  &     &     &     &     &     \\
+\hline        Escrita do artigo            &     &     &     &     &     &     &     &     &     &  X  &  X  
+    \end{tabular}
+    \caption{Atividades programadas para a realização do doutorado sanduíche.}
+    \label{tab:CronogramaFRA}
+\end{table}
+
+    Após o retorno ao Brasil, pretendemos seguir com o cronograma apresentado na tabela \ref{tab:CronogramaBRA}, que contempla o encerramento desta tese pela compilação dos resultados obtidos durante o tempo de desenvolvimento do sanduíche e anteriormente.
+
+\begin{table}[h]
+    \begin{tabular}{| l|c|c|c|c|c |}
+        \textbf{Atividades} & \multicolumn{5}{c}{\textbf{Mês do ano}}    \\
+                                           & Ago & Set & Out & Nov & Dez \\
+\hline        Compilação dos resultados    &  X  &  X  &     &     &     \\
+\hline        Escrita da tese              &  X  &  X  &  X  &     &     \\
+\hline        Marcação da banca            &     &     &     &  X  &     \\
+\hline \hline Defesa da tese               &     &     &     &     &  X
+    \end{tabular}
+    \caption{Atividades programadas para a realização após o retorno do doutorado sanduíche.}
+    \label{tab:CronogramaBRA}
+\end{table}
+
+\section{Plano de estudos do doutorado sanduíche}
+\label{ch:Estudos}
+
+Faremos uma revisão da bibliografia baseada nos métodos de simulação de materiais granulares, o qual o candidato, o orientador e o coorientador já possuem experiência e publicações internacional. A adição as técnicas de simulação da mecânica dos fluidos ao problema caracteriza-o como um problema de transporte. Tal revisão tem o intuito de aprimorar as técnicas computacionais e o melhor embasamento no equacionamento da interação entre fluido e granular, além de verificar o estado da arte e as últimas tendências do problema.
+
+Como a definição do trabalho e de validação prévia, revemos a forma de equacionar a mecânica dos fluidos. O intuito é de encontrar uma forma computacional mais estável para resolver o FEM. Estudamos o sistema descrito no artigo \textit{"Numerical simulation of turbulent sediment transport, from bed load to saltation."}, publicado na \textit{Physics of Fluids}, de autoria do Dr. Philippe Claudin, o coorientador \cite{Numerical_simulation_of_turbulent_sediment_transport}.
+
+Aprimoraremos o código fonte, adequando das equações que regem o sistema. Validaremos o modelo baseando-se nos resultados da literatura, como os modos de transportes e suas propriedades. Utilizaremos as métricas já descritas pela geografia física e pela mecânica estatística.
+
+Analisaremos os resultados preliminares do transporte de grãos como base para o início da validação das equações do modelo e das regras que regem o sistema, a fim de obter resultados que exprimam a realidade. Em seguida, ajustaremos os parâmetros necessários para a realização específica das propriedades na qual desejamos observar e documentar em forma de artigos e na base da tese a ser escrita.
+
+A participação em um congresso na área e a publicação em periódico internacional de relevância tornam-se de importantes para a divulgação das ideias e dos resultados. O congresso tem objetivo de fazer contatos com outros grupos de pesquisa, aprimorando assim as habilidades e a colaboração entre os assuntos tratados em âmbito internacional. O artigo promove boa oportunidade posicionar bem o Brasil e o CEFET-MG com as revistas de relevância para a ciência internacional. O código fonte é um dos produtos diretos da pesquisa, e que pode ser patenteado após a conclusão da mesma.
+

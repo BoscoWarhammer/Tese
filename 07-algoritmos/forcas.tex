@@ -1,0 +1,24 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
+    \Input{posições, velocidades, lista de contatos e perfil de velocidades do fluido}
+    \Output{forças e torques atuantes nos corpos}
+    \ForEach{corpo}{
+        Aplicar gravidade\;
+        \ForEach{elemento da lista de contatos}{
+            Calcula força normal $\vec{N}$\;
+            Calcula força ${F}^{d}$ no rolamento de corpos\;
+            \eIf{$|{F}^{d}| < \mu |\vec{N}|$}{
+                $\vec{F}^{at} += \vec{F}^{d}\hat{t}$\;
+            }{
+                $\vec{F}^{at} += \mu \textrm{sinal}(\vec{F}^{d}) N\hat{t}$\;
+            }
+            Calcula torque\;
+        }
+        \If{possui fluido}{
+            Calcula força de Arquimedes\;
+            Calcula força de arrasto\;
+        }
+    }
+    \caption{Aqui são calculadas as resultantes das forças em cada corpo. A força $\vec{N}$ é a força normal, contribuição da força elástica $\vec{F}^{el}$ e força de amortecimento $\vec{F}^{am}$ (equações \ref{equ:forca_elastica} e \ref{equ:forca_amortecimento}), $F^{d}$ é a força de rolamento de um corpo sobre o outro, que deve ser comparado com a força de atrito estático máxima $\mu N$. Retirado e adaptado de \cite{Dissertacao}.}
+    \label{alg:forcas}
+\end{algorithm}

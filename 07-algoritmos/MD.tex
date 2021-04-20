@@ -1,0 +1,19 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
+    \Input{configuração de dados inicial da simulação}
+    \Output{resposta e medições de simulação ao longo do tempo}
+    \While{não atingida a condição de parada da simulação}{
+        \If{chegou a hora de listar os Vizinhos}{
+            Determinar a lista de corpos Vizinhos\;
+        }
+        Preditor\;
+        Detectar Contatos\;
+        Cálculo de Forças\;
+        Corretor\;
+        \If{Possui Fluido}{
+            Cálculo do Fluido\;
+        }
+    }
+    \caption{Dadas as entradas do problema, como posições iniciais dos corpos, velocidades e acelerações, o algoritmo de Dinâmica Molecular monta uma lista de corpos que são vizinhos delimitados por uma certa região, então prediz a posição e a velocidade dos corpos no próximo instante de tempo, procura os contatos que foram formados com a predição, calcula as forças entre cada corpo em contato e inclui as forças externas, corrige as predições de velocidade e aceleração de cada corpo e calcula a dinâmica do fluido. Assim um passo de Dinâmica Molecular é construído. Retirado de \cite{Dissertacao}.}
+    \label{alg:MD}
+\end{algorithm}
