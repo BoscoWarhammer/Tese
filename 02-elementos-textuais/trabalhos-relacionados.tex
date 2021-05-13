@@ -2,34 +2,80 @@
 % Trabalhos Relacionados
 % -----------------------------------------------------------------------------
 
-\chapter{Materiais Granulares}
+\chapter{Granular Materials}
 \label{chap:Trabalhos-Relacionados}
 
 %Cada capítulo deve conter uma pequena introdução (tipicamente, um ou dois parágrafos), em seção não numerada, que deve deixar claro o objetivo e o que será discutido no capítulo, bem como a organização do capítulo.
 
-    Materiais granulares são conjunto de corpos sólidos, que individualmente podem ser compostos de um mesmo material ou de diferentes materiais, de geometria das mais variadas, podendo ter várias densidades, coeficiente de atrito, dureza, e várias outras propriedades físicas que os materiais possuem, mas todos são maiores que $100\mu m$, e portanto visíveis a olho nu \cite{Sands_Powders_and_Grains}. Interagem entre si quando estão em contato uns com os outros, perdendo energia, tanto na forma de dissipação inelástica, quanto no atrito entre os grãos.
-    Os corpos sólidos que constituem os materiais granulares são grandes o suficiente para não apresentarem influência cinemática em função da temperatura termodinâmica. Assim sendo, movimentos Brownianos são ausentes nesse tipo de sistema.
+%    Materiais granulares são conjunto de corpos sólidos, que individualmente podem ser compostos de um mesmo material ou de diferentes materiais, de geometria das mais variadas, podendo ter várias densidades, coeficiente de atrito, dureza, e várias outras propriedades físicas que os materiais possuem, mas todos são maiores que $100\mu m$, e portanto visíveis a olho nu \cite{Sands_Powders_and_Grains}. Interagem entre si quando estão em contato uns com os outros, perdendo energia, tanto na forma de dissipação inelástica, quanto no atrito entre os grãos.
+%    Os corpos sólidos que constituem os materiais granulares são grandes o suficiente para não apresentarem influência cinemática em função da temperatura termodinâmica. Assim sendo, movimentos Brownianos são ausentes nesse tipo de sistema.
 
-    Segundo a \href{http://webofknowledge.com}{\textit{Web of Science}}, o número de produções publicadas com a palavra chave \textit{"Granular Materials"}, até $03/04/2018$, é de $8.618$ e segue a distribuição apresentada na figura \ref{fig:articles-year} ao longo dos anos. O estudo de materiais granulares também segue uma tendência crescente ao longo dos anos.
+    Granular Materials are sets of solid bodies, which individually can be composed by same material or different materials. They can have variety geometry, different densities, friction coefficient, hardness, etc., but an individual grain must be larger than $100\mu m$ \cite{Sands_Powders_and_Grains} due to the athermous nature. The solid bodies that composes granular materials are large enough to do not present kinetic fluctuation induced by thermodynamic temperature. Therefore, Brownian motion do not appear in those systems. Granular materials interact each other when they are in contact, loosing energy in inelastic collision\footnote{Inelastic collision is a loss of kinetic energy due to the contact of the bodies, in which they have transformed part of the energy to heat and they may deform in the process \cite{Halliday}. We are modeling the inelastic collision between two grains in section \ref{subsubchap:Reologia}.}, as well as friction.
+
+%    Segundo a \href{http://webofknowledge.com}{\textit{Web of Science}}, o número de produções publicadas com a palavra chave \textit{"Granular Materials"}, até $03/04/2018$, é de $8.618$ e segue a distribuição apresentada na figura \ref{fig:articles-year} ao longo dos anos. O estudo de materiais granulares também segue uma tendência crescente ao longo dos anos.
     
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{04-figuras/articles-year.png}
-    \caption{Produção científica acerca de materiais granulares com as palavras chave \textit{"Granular Materials"} ao longo dos anos.}
-    \label{fig:articles-year}
-\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{04-figuras/articles-year.png}
+%    \caption{Produção científica acerca de materiais granulares com as palavras chave \textit{"Granular Materials"} ao longo dos anos.}
+%    \label{fig:articles-year}
+%\end{figure}
 
-\section{Teoria}
+\section{Theory}
+\label{subsection:Teoria}
 
-    Como exemplos de materiais granulares temos areia, pedras, solos, fármacos, minérios, alimentos em grão como arroz, milho e soja, e até mesmo o cinturão de asteroides e os anéis de Saturno. Só a areia, compõe $10\%$ dos materiais da superfície do planeta Terra. Além disso, estima-se que o segundo material mais utilizado nas indústrias são materiais granulares, utilizando aproximadamente $10\%$ de toda a energia do planeta, sendo que o material mais utilizado é a própria água \cite{Sands_Powders_and_Grains}.
+%    Como exemplos de materiais granulares temos areia, pedras, solos, fármacos, minérios, alimentos em grãos (arroz, milho, soja, etc.), e até mesmo o cinturão de asteroides e os anéis de Saturno. Só a areia compõe $10\%$ dos materiais da superfície do planeta Terra. Além disso, estima-se que o segundo material mais utilizado nas indústrias são materiais granulares, utilizando aproximadamente $10\%$ de toda a energia do planeta, sendo que o material mais utilizado é a própria água \cite{Sands_Powders_and_Grains}.
 
-    Pela ausência de movimentos Brownianos, bem como pela dissipação de energia, sistemas granulares não sofrem relaxação espontânea de suas configurações estáveis na ausência de perturbações externas, principalmente na forma de vibrações, e portanto não apresentam ergodicidade\footnote{Um sistema ergódico tem característica de transitar entre seus microestados de energia espontaneamente, em intervalos de tempos, implicando que seus estados são todos equiprováveis quando analisados em um longuíssimo tempo \cite{Dissertacao, Srdjan-Tese, Granular_Solids_Liquids_and_Gases}.}.
+    Examples of granular materials includes sand, stones, soils, drugs, ores, grain foods (rice, corn, soybeans, etc.), even the asteroid belt and Saturn's rings. The sand alone makes up $10\%$ of the materials on surface of planet Earth. Besides that, it is estimated that the second most used material in industries are granular materials, using approximately $10\%$ of all the energy on the planet, with the most used material being water itself \cite{Sands_Powders_and_Grains}.
 
-    Materiais granulares apresentam também particularidades quanto às suas fases. Apresentam-se individualmente em corpos sólidos, e quando o conglomerado está próximo do repouso, constituem a fase sólida do sistema. Porém, se o sistema é agitado, ou configurado além de um limiar crítico do ângulo de repouso, pode apresentar-se nas fases de granular líquido\footnote{Granulares líquidos podem possuir uma camada limite que flui sobre a camada sólida do sistema.} ou granular gasoso. Tal classificação ainda está em aberto na literatura, apesar de existirem proposições para o que seria a temperatura granular do sistema \cite{Granular_Solids_Liquids_and_Gases}.
+    \begin{figure}
+        \begin{minipage}{.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Alimento.png}
+            \subcaption{Grain foods.}
+            \label{subfig:exemplo_alimento}
+        \end{minipage}
+        \begin{minipage}{.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Medicamento.png}
+            \subcaption{Drugs.}
+            \label{subfig:exemplo_medicamento}
+        \end{minipage}
+        \begin{minipage}{.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Açucar.png}
+            \subcaption{Sugar.}
+            \label{subfig:exemplo_acucar}
+        \end{minipage}
+        \begin{minipage}{.45\linewidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Saturno.png}
+            \subcaption{Saturn and its rings.}
+            \label{subfig:exemplo_saturno}
+        \end{minipage}
+        \caption{Examples of granular material. Figures taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
+    \end{figure}
 
-    Uma diferenciação entre sistemas granulares pode ser resultado direto das forças de interações entre os grãos. São chamados de granulares secos os sistemas que possuem apenas interações repulsivas, enquanto os granulares molhados apresentam forças de van der Waals nas interações grão a grão. Nesta tese, consideraremos apenas as interações repulsivas de contato, apesar de que em alguns casos, existe fluido envolvendo o material. Consideramos que todo o material que está envolvido pelo mesmo fluido não sofre forças de atração entre os mesmos grãos, e portanto, não está inclusa força de van der Waals na interação entre os grãos.
+%    Pela ausência de movimentos Brownianos, bem como pela dissipação de energia, sistemas granulares não sofrem relaxação espontânea de suas configurações estáveis na ausência de perturbações externas, principalmente na forma de vibrações, e portanto não apresentam ergodicidade\footnote{Um sistema ergódico tem característica de transitar entre seus microestados de energia espontaneamente, em intervalos de tempos, implicando que seus estados são todos equiprováveis quando analisados em um longuíssimo tempo \cite{Dissertacao, Srdjan-Tese, Granular_Solids_Liquids_and_Gases}.}.
 
-    Ainda neste capítulo, concentraremos em apenas alguns fenômenos de materiais granulares que não são o objetivo direto desta tese, mas que contextualizam o leitor acerca de fenômenos importantes observados em materiais granulares. Em especial, o capítulo \ref{chap:BNE} retrata do efeito castanha do Pará \textit{(BNE)} com os detalhes fenomenológicos e suas caracterizações, enquanto o capítulo \ref{chap:Transporte-Sedimentos} descreve os modos do transporte de sedimentos.
+    Due to the absence of Brownian movements, as well as the dissipation of energy in the contact, granular systems does not undergo spontaneous relaxation of its stable configurations in the absence of external disturbances, and therefore do no have ergodicity\footnote{An ergodic system has the characteristic of moving between their micro-states of energy spontaneously, in intervals of time, implying that their states are all equiprobable when analyzed in a very long time \cite{Srdjan-Tese, Unifying_Concepts_in_Granular_Media_and_Glasses}.}.
+
+    To demonstrate this non-ergodicity, we can think about a dry sand pile that rests at a base. If this base does not oscillate, the structure of the pile does not change, the structure of internal forces will remain unchanged, even if it is heated or cooled. This means that sand grains cannot transit between all equipotential states spontaneously, and than this sand pile will rest with internal configurations (chain-forces, stress tensors, grain contact, etc.) unchanged. In the section \ref{subchap:Fenomenologia}, one can find more details.
+
+%    Materiais granulares apresentam também particularidades quanto às suas fases. Apresentam-se individualmente em corpos sólidos, e quando o conglomerado está próximo do repouso, constituem a fase sólida do sistema. Porém, se o sistema é agitado, ou configurado além de um limiar crítico do ângulo de repouso, pode apresentar-se nas fases de granular líquido\footnote{Granulares líquidos podem possuir uma camada limite que flui sobre a camada sólida do sistema.} ou granular gasoso. Tal classificação ainda está em aberto na literatura, apesar de existirem proposições para o que seria a temperatura granular do sistema \cite{Granular_Solids_Liquids_and_Gases}.
+
+    Granular materials also have particularities regarding their phases, analogously to the state of matter. They are presented individually in solid bodies, and when the conglomerate is close to rest, they constitute the equivalent solid phase of the state of matter. However, if the granular system is slightly agitated, or configured beyond a critical threshold of angle of rest, it can be interpreted in similarity of the liquid state of matter\footnote{Liquid granules can have a boundary layer that flows over the sold layer of the system.}. Granular gases are granular systems that are vigorously agitated, with low packing fraction\footnote{Packing fraction is the measure of the occupied space by the solid portion in relation of the total space.}, and they tend to occupy a large part of the recipe which contains them. An example of the granular state is shown in figure \ref{fig:exemplo_fases}, where the solid phase is static in the bottom, the liquid phase is flowing though layers in the middle, and the gaseous phase is flowing in a higher disordered portion at top. Such classification is still open in the literature, although there are proposals for what would be the granular temperature of the system, in analogous of thermal temperature \cite{Granular_Solids_Liquids_and_Gases}.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Fases.png}
+        \label{fig:exemplo_fases}
+        \caption{Example of three granular phases according their kinetic energy. Figures taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
+    \end{figure}
+
+%    Uma diferenciação entre sistemas granulares pode ser resultado direto das forças de interações entre os grãos. São chamados de granulares secos os sistemas que possuem apenas interações repulsivas, enquanto os granulares molhados apresentam forças de van der Waals nas interações grão a grão. Nesta tese, consideraremos apenas as interações repulsivas de contato, apesar de que em alguns casos, existe fluido envolvendo o material. Consideramos que todo o material que está envolvido pelo mesmo fluido não sofre forças de atração entre os mesmos grãos, e portanto, não está inclusa força de van der Waals na interação entre os grãos.
+
+    A differentiation between granular systems can be a direct result of the interaction forces between grains. Systems that have only repulsive interactions are called dry granulars, while wet granulars have van der Waals forces in grain-to-grain interactions. In this thesis, we will only consider repulsive contact interactions, although in some cases, there is fluid surrounding the material. We consider that all the material that is involved by the same fluid does not suffer forces of attraction between the same grains, and therefore, van der Waals force is not included in the interaction between the grains.
 
 \section{Fenomenologia de Materiais Granulares}
 \label{subchap:Fenomenologia}
