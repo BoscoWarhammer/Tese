@@ -208,11 +208,14 @@
 % Define os títulos das listas
 \addto\captionsbrazil{%
 % Ajusta nomes padrões do babel
+    \renewcommand{\figurename}{Figure}
+    \renewcommand{\tablename}{Table}
     \renewcommand{\listadesiglasname}{List of Abbreviations and Acronyms}
     \renewcommand{\listadesimbolosname}{List of Symbols}
     \renewcommand{\listfigurename}{List of Figures}
     \renewcommand{\listtablename}{List of Tables}
     \renewcommand{\indexname}{Table of Contents}
+    \renewcommand{\contentsname}{Contents}
 % Ajusta nomes usados com a macro \autoref
     \renewcommand{\pageautorefname}{page}
     \renewcommand{\sectionautorefname}{Section}
