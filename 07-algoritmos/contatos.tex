@@ -1,13 +1,13 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \Input{lista de Vizinhos}
-    \Output{lista de Contatos}
-    \ForAll{corpos Vizinhos}{
-        Calcular Interpenetração $\delta_{i,j}$ entre corpos $i$ e $j$\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{Neighbor list}
+    \Output{Contact list}
+    \ForAll{neighbor bodies}{
+        Calculate the Interpenetration $\delta_{i,j}$ between bodies $i$ and $j$\;
         \If{$\delta_{i,j} > 0$}{
-            Insere o par na lista de contatos\;
+            Insert the pair $i$ and $j$ in the contact list\;
         }
     }
-    \caption{Rotina de detecção de contatos. Retirado de \cite{Dissertacao}.}
+    \caption[Detect contacts.]{Detect contacts routine. Algorithm taken from \cite{Dissertacao}.}
     \label{alg:contatos}
 \end{algorithm}

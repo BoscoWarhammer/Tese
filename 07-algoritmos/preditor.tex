@@ -1,11 +1,11 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \Input{posições, velocidades, acelerações e o passo de tempo $\Delta t$}
-    \Output{posições, parcela das velocidades}
-    \ForAll{corpos}{
-        Calcular as posições\;
-        Prever as velocidades\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{positions, velocities, accelerations and the time step $\Delta t$}
+    \Output{positions, part of the velocities}
+    \ForAll{bodies}{
+        Calculate new postions\;
+        Predict new velocities\;
     }
-    \caption{Rotina de predição das variáveis de estado dos corpos. Retirado de \cite{Dissertacao}.}
+    \caption[Predictor.]{Prediction routine for state variables of bodies. Algorithm taken from \cite{Dissertacao}.}
     \label{alg:preditor}
 \end{algorithm}

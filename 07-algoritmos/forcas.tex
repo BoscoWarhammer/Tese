@@ -1,24 +1,21 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \Input{posições, velocidades, lista de contatos e perfil de velocidades do fluido}
-    \Output{forças e torques atuantes nos corpos}
-    \ForEach{corpo}{
-        Aplicar gravidade\;
-        \ForEach{elemento da lista de contatos}{
-            Calcula força normal $\vec{N}$\;
-            Calcula força ${F}^{d}$ no rolamento de corpos\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{positions, velocities and contact list}
+    \Output{acting forces and torques in the bodies}
+    \ForEach{body}{
+        Apply gravity force\;
+        \ForEach{body in the contact list}{
+            Calculate the normal forces $\vec{N}$\;
+            Calculate the rolling forces ${F}^{d}$\;
             \eIf{$|{F}^{d}| < \mu |\vec{N}|$}{
                 $\vec{F}^{at} += \vec{F}^{d}\hat{t}$\;
             }{
-                $\vec{F}^{at} += \mu \textrm{sinal}(\vec{F}^{d}) N\hat{t}$\;
+                $\vec{F}^{at} += \mu \textrm{sign}(\vec{F}^{d}) N\hat{t}$\;
             }
-            Calcula torque\;
-        }
-        \If{possui fluido}{
-            Calcula força de Arquimedes\;
-            Calcula força de arrasto\;
+            Calculate torque\;
         }
     }
-    \caption{Aqui são calculadas as resultantes das forças em cada corpo. A força $\vec{N}$ é a força normal, contribuição da força elástica $\vec{F}^{el}$ e força de amortecimento $\vec{F}^{am}$ (equações \ref{equ:forca_elastica} e \ref{equ:forca_amortecimento}), $F^{d}$ é a força de rolamento de um corpo sobre o outro, que deve ser comparado com a força de atrito estático máxima $\mu N$. Retirado e adaptado de \cite{Dissertacao}.}
+%    \caption[Force calculation.]{Aqui são calculadas as resultantes das forças em cada corpo. A força $\vec{N}$ é a força normal, contribuição da força elástica $\vec{F}^{el}$ e força de amortecimento $\vec{F}^{am}$ (equações \ref{equ:forca_elastica} e \ref{equ:forca_amortecimento}), $F^{d}$ é a força de rolamento de um corpo sobre o outro, que deve ser comparado com a força de atrito estático máxima $\mu N$. Retirado e adaptado de \cite{Dissertacao}.}
+    \caption[Force calculation]{In this routine, the resultant forces are calculated for each body. The force $\vec{N}$ is the normal force, contribution of the elastic force $\vec{F}^{el}$ and the damping force $\vec{F}^{am}$ (Equations \ref{equ:forca_elastica} and \ref{equ:forca_amortecimento}), $F^{d}$ is the rolling force of one body on the other, which must be compared with the maximum static friction force $\mu N$. Algorithm taken from \cite{Dissertacao}.}
     \label{alg:forcas}
 \end{algorithm}

@@ -1,12 +1,12 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \KwIn{posição dos corpos}
-    \KwOut{lista de Vizinhos}
-    Dividir o espaço em regiões\;
-    \ForEach{corpo}{
-        Inserir o corpo na lista da região que pertence\;
-        Inserir o corpo nas listas adjacentes da região que pertence\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \KwIn{body position}
+    \KwOut{neighbor list}
+    Divide the space in regions\;
+    \ForEach{body}{
+        Insert the body in the list of the region it belongs to\;
+        Insert the body into adjacent lists of the region it belongs to\;
     }
-    \caption{Algoritmo para criação da lista de corpos vizinhos. Retirado de \cite{Dissertacao}.}
+    \caption[Neighbor list.]{Algorithm for creating the list of neighbors. Algorithm taken from \cite{Dissertacao}.}
     \label{alg:vizinhos}
 \end{algorithm}
