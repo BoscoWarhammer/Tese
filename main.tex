@@ -65,6 +65,9 @@
 \usepackage{empheq}                                         % Permite a utilização de subequações
 \usepackage{tikz}                                           % Criação e manipulação de figuras
 \usepackage{tikzscale}                                      % Inclui as figuras feitas no TIKZ
+\usepackage{pgfplots}                                       % Cria bons ambientes para desenhar equações e pontos
+\usetikzlibrary{backgrounds}
+%\usepackage{breqn}                                          % Alows breaking equations
 \usepackage{pdfpages}                                       % Permite a inclusão de arquivos no texto
 
 % Redefine o estilo de citação para o uso dos colchetes
@@ -156,7 +159,7 @@
 \postextual
 \include{./03-elementos-pos-textuais/referencias}           % Referências
 \include{./03-elementos-pos-textuais/apendices}             % Apêndices
-%\include{./03-elementos-pos-textuais/anexos}                % Anexos
+\include{./03-elementos-pos-textuais/anexos}                % Anexos
 \include{./03-elementos-pos-textuais/indice-remissivo}      % Índice Remissivo
 
 \end{document}

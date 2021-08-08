@@ -1,0 +1,27 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{positions, velocities and contact list}
+    \Output{acting forces and torques in the bodies}
+    \ForEach{body}{
+        \textcolor{gray}{
+        Apply gravity force\;
+        \ForEach{body in the contact list}{
+            Calculate the normal forces $\vec{N}$\;
+            Calculate the rolling forces ${F}^{d}$\;
+            \eIf{$|{F}^{d}| < \mu |\vec{N}|$}{
+                $\vec{F}^{at} += \vec{F}^{d}\hat{t}$\;
+            }{
+                $\vec{F}^{at} += \mu \textrm{sign}(\vec{F}^{d}) N\hat{t}$\;
+            }
+            Calculate torque\;
+        }
+        }
+        \textcolor{blue}{
+        Calculate drag force \;
+        Calculate Archimedes' force \;
+        }
+    }
+%    \caption[Force calculation.]{Aqui são calculadas as resultantes das forças em cada corpo. A força $\vec{N}$ é a força normal, contribuição da força elástica $\vec{F}^{el}$ e força de amortecimento $\vec{F}^{am}$ (equações \ref{equ:forca_elastica} e \ref{equ:forca_amortecimento}), $F^{d}$ é a força de rolamento de um corpo sobre o outro, que deve ser comparado com a força de atrito estático máxima $\mu N$. Retirado e adaptado de \cite{Dissertacao}.}
+    \caption[Force calculation with fluid force]{In this routine, the resultant forces are calculated for each body. The force $\vec{N}$ is the normal force, contribution of the elastic force $\vec{F}^{el}$ and the damping force $\vec{F}^{am}$ (Equations \ref{equ:forca_elastica}, \ref{equ:forca_amortecimento}), $F^{d}$ is the rolling force of one body on the other, which must be compared with the maximum static friction force $\mu N$. Archimedes' and drag forces are calculated every time step on each grain, according to the Equations \ref{equ:arquimedes} and \ref{equ:arraste}. Algorithm adapted from \cite{Dissertacao}.}
+    \label{alg:forcas-fluido}
+\end{algorithm}

@@ -216,6 +216,10 @@
     \renewcommand{\listtablename}{List of Tables}
     \renewcommand{\indexname}{Table of Contents}
     \renewcommand{\contentsname}{Contents}
+    \renewcommand{\apendicename}{Appendix}
+    \renewcommand{\apendicesname}{APPENDIX}
+    \renewcommand{\anexoname}{Annex}
+    \renewcommand{\anexosname}{ANNEX}
 % Ajusta nomes usados com a macro \autoref
     \renewcommand{\pageautorefname}{page}
     \renewcommand{\sectionautorefname}{Section}

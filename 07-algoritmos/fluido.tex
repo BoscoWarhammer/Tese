@@ -1,14 +1,20 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \Input{perfil de velocidades e cisalhamento do fluido, forças de arrasto e arquimedes nos grãos, passos de tempo $\Delta t$ e de espaço $\Delta y$}
-    \Output{estado do fluido para o próximo passo de tempo}
-    \ForEach{corpo}{
-        Calcula as pressões dos corpos no fluido\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{velocity and shear fluid profiles, grains drag and Archimedes' forces, time step $\Delta t$ and spatial step $\Delta z$}
+    \Output{variables of the fluid ready to simulate next time step}
+    \ForEach{body}{
+        Calculate body pressure on the fluid\;
     }
-    \ForAll{fluido}{
-        Calcula o cisalhamento do fluido\;
-        Atualiza a velocidade do fluido\;
+    \ForAll{fluid}{
+        \uIf{explicit}{
+            Calculate the fluid shear\;
+            Update the fluid velocity\;
+        }
+        \uElseIf{implicit}{
+            Update the fluid velocity\;
+            Calculate the fluid shear\;
+        }
     }
-    \caption{Rotina que atualiza os estados do fluido para o próximo passo de tempo.}
+    \caption[Update fluid.]{Routine that updates the fluid states for the next time step.}
     \label{alg:fluido}
 \end{algorithm}

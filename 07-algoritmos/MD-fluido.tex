@@ -1,0 +1,20 @@
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{initial simulation data setup}
+    \Output{response and simulation measurements over time}
+    \While{not reached the stop condition of the simulation}{
+        \textcolor{gray}{
+        \If{it is time to List the Neighbors}{
+            List the Neighbors\;
+        }
+        Predictor\;
+        Detect Contacts\;
+        Force Calculation\;
+        Corrector\;
+        }
+        \textcolor{blue}{Update fluid\;}
+    }
+%    \caption{Dadas as entradas do problema, como posições iniciais dos corpos, velocidades e acelerações, o algoritmo de Dinâmica Molecular monta uma lista de corpos que são vizinhos delimitados por uma certa região, então prediz a posição e a velocidade dos corpos no próximo instante de tempo, procura os contatos que foram formados com a predição, calcula as forças entre cada corpo em contato e inclui as forças externas, corrige as predições de velocidade e aceleração de cada corpo e calcula a dinâmica do fluido. Assim um passo de Dinâmica Molecular é construído. Retirado de \cite{Dissertacao}.}
+    \caption[DEM+CFD algorithm.]{Given the input of the problem, such as initial positions of bodies, velocities and accelerations, the algorithm assembles a list of bodies that are neighbors delimited by a certain region, then predicts the position and velocity of the bodies at the next instant of time, looks for the contacts that were formed with the prediction, calculates the forces between each body in contact and includes the external forces, and corrects the velocity and acceleration predictions for each body and calculate the fluid dynamics. Thus a DEM+CFD step is constructed. Algorithm adapted from \cite{Dissertacao}.}
+    \label{alg:MD-Fluid}
+\end{algorithm}

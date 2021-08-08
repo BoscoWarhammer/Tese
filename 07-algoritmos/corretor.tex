@@ -1,11 +1,11 @@
 \begin{algorithm}
-    \SetKwInOut{Input}{Entrada}\SetKwInOut{Output}{Saída}
-    \Input{resultante das forças e o passo de tempo $\Delta t$}
-    \Output{estado dos corpos prontos para o próximo passo de tempo}
-    \ForEach{corpo}{
-        Calcular as acelerações\;
-        Corrigir as velocidades\;
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{acting forces and torques in the bodies and the time step $\Delta t$}
+    \Output{positions, velocities and accelerations to the next time step}
+    \ForEach{body}{
+        Calculate accelerations\;
+        Correct velocites\;
     }
-    \caption{Rotina de correção das variáveis dos corpos. Retirado de \cite{Dissertacao}.}
+    \caption[Corrector]{Correction routine for state variables of bodies. Algorithm taken from \cite{Dissertacao}.}
     \label{alg:corretor}
 \end{algorithm}

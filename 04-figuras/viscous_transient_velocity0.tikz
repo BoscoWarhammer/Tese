@@ -1,0 +1,128 @@
+\begin{tikzpicture}[background rectangle/.style={fill=olive!45}, show background rectangle]
+    \begin{semilogyaxis}[
+        legend style={at={(0.5,-0.35)},anchor=north},
+        axis lines = left,
+        xmajorgrids=true,
+        ymajorgrids=true,
+        grid style=gray,
+        xlabel = {$t^+$},
+        ylabel = {$\frac{\left(<u>^{\infty}-<u>\right)}{u_* \epsilon h^+}$},
+        clip marker paths=true,
+    ]
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=green,
+            densely dotted,
+            ultra thick,
+            only marks,
+            mark=star,
+        ]
+        table[x index=0,y index=3]{09-data/EETimeh10d1.ssv};
+%        \addlegendentry{Euler Discretization}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=green,
+            only marks,
+            mark=o,
+        ]
+        table[x index=0,y index=3]{09-data/EETimeh25d1.ssv};
+%        \addlegendentry{Euler}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=green,
+            dashed,
+            only marks,
+            mark=diamond,
+        ]
+        table[x index=0,y index=3]{09-data/EETimeh100d1.ssv};
+%        \addlegendentry{Euler Discretization}
+
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+            densely dotted,
+            ultra thick,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh10d2.ssv};
+%        \addlegendentry{All Fourier Modes}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh25d2.ssv};
+%        \addlegendentry{All Fourier Modes}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+            dashed,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh100d2.ssv};
+%        \addlegendentry{All Fourier Modes}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+            densely dotted,
+            ultra thick,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh10d3.ssv};
+%        \addlegendentry{All Fourier Modes}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh25d3.ssv};
+%        \addlegendentry{All Fourier Modes}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=blue,
+            dashed,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh100d3.ssv};
+%        \addlegendentry{All Fourier Modes}
+
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+            densely dotted,
+            ultra thick,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh10d2.ssv};
+%        \addlegendentry{Fourier Mode 1}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh25d2.ssv};
+%        \addlegendentry{Fourier Mode 1}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+            dashed,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh100d2.ssv};
+%        \addlegendentry{Fourier Mode 1}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+            densely dotted,
+            ultra thick,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh10d3.ssv};
+%        \addlegendentry{Fourier Mode 1}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh25d3.ssv};
+%        \addlegendentry{Fourier Mode 1}
+        \addplot [
+            restrict x to domain=0:7.5,
+            color=red,
+            dashed,
+        ]
+        table[x index=0,y index=3]{09-data/A1Timeh100d3.ssv};
+%        \addlegendentry{Fourier Mode 1}
+    \end{semilogyaxis}
+%    \begin{axis}[tiny]
+%    \end{axis}
+\end{tikzpicture}

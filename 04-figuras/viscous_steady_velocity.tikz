@@ -1,0 +1,38 @@
+%\begin{tikzpicture}[domain=0:5, background rectangle/.style={fill=olive!45}, show background rectangle]                                     % Define o tamanho do domínio (o eixo x)
+%    \draw[very thin,color=gray] (-0.1,-0.1) grid (5.1,5.1);         % Traça o grid de fundo em cinza, espaçado de 1x1
+%    \draw[->] (-0.2,0) -- (5.2,0)                                   % Traça o eixo das abississas em preto
+%        node[below=5pt] at (2.5,-0.5) {$z\frac{u_*}{\nu}$};         % Titula o eixo das abississas como "zu*/nu"
+%    \foreach \x  in {1,...,5}{
+%        \pgfmathtruncatemacro\xtext{\x * 100}
+%        \draw (\x ,1pt) -- (\x ,-1pt) node[below] {\small $\xtext$};
+%    }
+%    \draw[->] (0,-0.2) -- (0,5.2)                                   % Traça o eixo das ordenadas em preto
+%        node[left=35pt,rotate=90] at (-0.1,2.5) {$\frac{u}{u_*}$};  % Titula o eixo das ordenadas como "u/u*"
+%    \foreach \y  in {1,...,5}{
+%        \pgfmathtruncatemacro\ytext{\y * 100}
+%        \draw (-1pt,\y cm) -- (-3pt,\y cm) node[left] {\small $\ytext$};
+%    }
+%    \draw[color=red] plot[id=x] function{x};                         % Desenha a função normalizada
+%\end{tikzpicture}
+\begin{tikzpicture}[background rectangle/.style={fill=olive!45}, show background rectangle]                                     % Define o tamanho do domínio (o eixo x)
+    \begin{axis}[
+        axis lines = left,
+        xmin = 0, xmax = 550,
+        ymin = 0, ymax = 550,
+        xtick={0,100,200,300,400,500},
+        ytick={0,100,200,300,400,500},
+        xmajorgrids=true,
+        ymajorgrids=true,
+        grid style=gray,
+        xlabel = {$z^+$},
+        ylabel = {$u^+$},
+    ]
+        %Below the red function is defined
+        \addplot [
+            domain=0:500,
+            color=red,
+        ]
+        {x};
+%        \addlegendentry{Normalized Velocity}
+    \end{axis}
+\end{tikzpicture}

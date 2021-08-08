@@ -1,0 +1,23 @@
+\begin{tikzpicture}[background rectangle/.style={fill=olive!45}, show background rectangle]
+    \begin{axis}[
+        axis lines = left,
+        xmajorgrids=true,
+        ymajorgrids=true,
+        grid style=gray,
+        xlabel = {$\frac{z^+}{h^+}$},
+        ylabel = {$\frac{\left(u_{\infty}-u_{0}\right)}{u_*\epsilon h^+}$},
+    ]
+        \addplot [
+            domain=0:1,
+            color=blue,
+        ]
+        {x};
+        \addplot [
+            domain=0:1,
+            color=red,
+            samples=20,
+        ]
+        {8/(pi^2)*sin(pi/2*deg(x))};
+%        \addlegendentry{Normalized Velocity}
+    \end{axis}
+\end{tikzpicture}
