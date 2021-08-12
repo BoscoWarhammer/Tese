@@ -155,11 +155,11 @@ with $u^+ = u/u_{*}$ and $z^+ = z u_{*}/\nu$.
     Having the stationary solution in hands, we can think if there is a possibility to describe the transient regime of the equation \ref{equ:fluido_x}. This is a linear partial differential equation: the diffusion equation. Equation \ref{equ:viscous_transient_velocity_full_solution} is the general solution\footnote{For more details, Attachments \ref{chap:Calculations} have the whole calculation to get in the solution we got. It is also described in \cite{Boyce}, Chapter 10.} with the boundary conditions and generic initial velocity profile $u_0(z)$.
 \begin{equation}
     \begin{split}
-        u^+ = z^+ +\frac{2}{h}\sum_{n=1}^\infty\{
+        u^+ = z^+ +\frac{2}{h}\sum_{n=1}^\infty\Big\{
         &{\int_0^h\left[\frac{u_0\left(\zeta\right)}{u_*}-\frac{u_*}{\nu}\zeta\right]\sin\left(\pi\frac{2n-1}{2h}\zeta\right) \mathrm{d}\zeta}\\
         &{\sin\left(\pi\frac{2n-1}{2h}z\right)}
         {e^{-{\left(\pi\frac{2n-1}{2h}\right)}^2\nu t}}
-        \},
+        \Big\},
     \end{split}
     \label{equ:viscous_transient_velocity_full_solution}
 \end{equation}
@@ -357,10 +357,10 @@ where $\left[Tridiag\right]$ is a tridiagonal matrix and $\lambda = \frac{\nu \D
     The following equation describes the density ratio between grain and fluid:
 \begin{equation}
     \label{equ:razao_densidade}
-    \mathcal{D}_{R} = \frac{\rho^{g}}{\rho^{f}},
+    \mathcal{D}_{R} = \frac{\rho^{p}}{\rho^{f}},
 \end{equation}
 %em que $\mathcal{D}_{R}$ é a razão de densidade, $\rho^{body}$ é a densidade do corpo e $\rho^{f}$ é a densidade do fluido.
-where $\mathcal{D}_{R}$ is the density ratio, $\rho^{g}$ is the grain density and $\rho_f$ is the fluid density.
+where $\mathcal{D}_{R}$ is the density ratio, $\rho^{p}$ is the grain density and $\rho_f$ is the fluid density.
 
 %    O segundo parâmetro adimensional de controle do fluido é o número de Galileo, dado pela equação:
     The second dimensionless fluid control parameter is the Galileo number, given by:
@@ -380,7 +380,7 @@ where $\mathcal{G}$ is the Galileo number in the grain scale, $d$ is the average
 %em que $\Theta$ é o número de Shields, $u_{*}$ é a velocidade de cisalhamento imposta para o fluido, $\mathcal{D}_{R}$ é a razão de densidade, $g$ é o valor de gravidade do sistema e $d$ é o diâmetro médio do corpo.
 where $\Theta$ is the Shields number, $u_{*}$ is the characteristic shear velocity, $\mathcal{D}_{R}$ is the density ratio, $g$ is the gravity value and $d$ is the average grain diameter.
 
-    The following table shows some dimensionless parameters we use in this thesis.
+    The Table \ref{tab:units} shows some dimensionless parameters we use in this thesis.
 
 \input{05-tabelas/normunitsfluid.tex}
 

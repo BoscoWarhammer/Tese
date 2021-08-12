@@ -2,17 +2,27 @@
 % Conclusão
 % -----------------------------------------------------------------------------
 
-\chapter{Conclusões Parciais}
+\chapter{Conclusions}
 \label{chap:Conclusao}
+    First of all, we successfully use the DEM technique to simulate dry granular materials and we coupled it with FDM to simulate the transport fluid.
 
-    Para os as simulações do BNE conseguimos reproduzir as propriedades de ascessão do intruso com diferentes densidades, diferentes amplitudes de vibração e diferentes frequências de vibração, observando a importância do atrito nas paredes do sistema. Mais do que isso, conseguimos realizar o BNE em um sistema que possui condição periódica de contorno e suas diferenças para o sistema de caixa fechada.
+%    Para os as simulações do BNE conseguimos reproduzir as propriedades de ascessão do intruso com diferentes densidades, diferentes amplitudes de vibração e diferentes frequências de vibração, observando a importância do atrito nas paredes do sistema. Mais do que isso, conseguimos realizar o BNE em um sistema que possui condição periódica de contorno e suas diferenças para o sistema de caixa fechada.
+    For the BNE simulations we were able to reproduce the intruder's ascent properties with different densities, different vibration amplitudes and different vibration frequencies, noting the importance of frictional walls on convection effect of the system. More than that, we were able to perform the BNE in a system that has a periodic boundary condition and its differences to the closed box system. We characterized the intruder's ascent rate according to the shaken frequency, understanding that the BNE phenomena in this conditions can be interpreted as a resonance effect. An important metric was applied, enhancing our understanding of the BNE phenomena: the LDF.
 
-    Para o sedimento de transportes, conseguimos validar as propriedades físicas que regem o sistema, condizendo simulação com a conservação de movimento. Validamos o fluido de acordo com a literatura e acoplamos grão e fluido de forma a interagirem sobre as leis da física.
+%    Para o sedimento de transportes, conseguimos validar as propriedades físicas que regem o sistema, condizendo simulação com a conservação de movimento. Validamos o fluido de acordo com a literatura e acoplamos grão e fluido de forma a interagirem sobre as leis da física.
+
+    For the sediment transport, we were able to validate the physical properties that govern the system, matching simulation with movement conservation. We validate the fluid according to the literature and couple grain and fluid so that they interact under the laws of physics. We also extracted and characterized the transport law for viscous bedload regime exploring systematically two parameters: the Galileo number $\mathcal{G}$ and the Shields number $\Theta$. Well characterized the steady-state, we moved to the transient regime, exploring the saturation time $T_\textrm{sat}$ and further the saturation length $L_\textrm{sat}$. We could deduce constitutive relations from force balance and from dimensionless analysis.
 
 %Procure fazer uma análise crítica de seu trabalho, destacando os principais resultados e as contribuições deste trabalho para a área de pesquisa.
 
-%\section{Trabalhos Futuros}
-%\label{sec:trabalhosFuturos}
+\section{Future works}
+\label{sec:trabalhosFuturos}
+
+    At this moment, we are finishing the last simulations to extract the saturation length $L_\textrm{sat}$ and preparing the manuscript documenting our results of the viscous bedload transport. We plan to submit this work on the Journal of Fluid Mechanics, detailing all the work we did until now in this subject.
+
+    We also plan to analyse the fluctuations in the BNE when the intruder enters in the convection current in problems with fw, and we think in how to explore this problem using the metrics of the energy, relating the BNE with its loss of energy.
+
+    Personally, I am planning to improve the numerical technique to simulate 3D granular materials, and extend the CFD also to 3D to analyse dune formations in viscous transportation. The CFD field is vast, but I wish to simulate mesh techniques using Discret Fourier Transform (DFT), since the fast algorithm, Fast Fourier Transform (FFT), is executable in the order of $\mathcal{O}(n \log{n})$ and seems to be perfectly matching with the granular phase.
 
 %Também deve indicar, se possível e/ou conveniente, como este trabalho pode ser estendido ou aprimorado.
 
