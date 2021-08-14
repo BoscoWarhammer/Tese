@@ -220,6 +220,7 @@
     \renewcommand{\apendicesname}{APPENDIX}
     \renewcommand{\anexoname}{Annex}
     \renewcommand{\anexosname}{ANNEX}
+    \renewcommand{\bibname}{Bibliography}
 % Ajusta nomes usados com a macro \autoref
     \renewcommand{\pageautorefname}{page}
     \renewcommand{\sectionautorefname}{Section}

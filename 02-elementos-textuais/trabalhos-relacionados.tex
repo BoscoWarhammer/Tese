@@ -4,31 +4,14 @@
 
 \chapter{Granular Materials}
 \label{chap:Trabalhos-Relacionados}
+    Granular Materials are sets of solid bodies, composed by a given material or different materials. They can have a varied geometries, different densities, friction coefficients, hardness \textit{etc}., but an individual grain must be larger than 100$\mu m$ \cite{Sands_Powders_and_Grains} to ensure the athermous nature. The solid bodies that composes granular materials should be large enough to do not present kinetic fluctuation induced by thermodynamic temperature. Therefore, Brownian motion do not play a role in these systems. Granular materials interact each other when they are in contact, loosing energy by inelastic collision, as well as by friction.
 
-%Cada capítulo deve conter uma pequena introdução (tipicamente, um ou dois parágrafos), em seção não numerada, que deve deixar claro o objetivo e o que será discutido no capítulo, bem como a organização do capítulo.
+Inelastic collision occurs when two or more grains collide losing part of their initial kinetic energy, in which they have transformed these loss to heat and they may deform in the process \cite{Halliday}. We are modeling the inelastic collision between two grains in section \ref{subsubchap:Reologia}.
 
-%    Materiais granulares são conjunto de corpos sólidos, que individualmente podem ser compostos de um mesmo material ou de diferentes materiais, de geometria das mais variadas, podendo ter várias densidades, coeficiente de atrito, dureza, e várias outras propriedades físicas que os materiais possuem, mas todos são maiores que $100\mu m$, e portanto visíveis a olho nu \cite{Sands_Powders_and_Grains}. Interagem entre si quando estão em contato uns com os outros, perdendo energia, tanto na forma de dissipação inelástica, quanto no atrito entre os grãos.
-%    Os corpos sólidos que constituem os materiais granulares são grandes o suficiente para não apresentarem influência cinemática em função da temperatura termodinâmica. Assim sendo, movimentos Brownianos são ausentes nesse tipo de sistema.
-
-    Granular Materials are sets of solid bodies, composed by a given material or different materials. They can have a varied geometries, different densities, friction coefficients, hardness \textit{etc}., but an individual grain must be larger than 100$\mu m$ \cite{Sands_Powders_and_Grains} to ensure the athermous nature. The solid bodies that composes granular materials should be large enough to do not present kinetic fluctuation induced by thermodynamic temperature. Therefore, Brownian motion do not play a role in those systems. Granular materials interact each other when they are in contact, loosing energy by inelastic collision, as well as by friction.
-
-Inelastic collision occurs when two or more grins collide losing part of their initial kinetic energy, in which they have transformed these loss to heat and they may deform in the process \cite{Halliday}. We are modeling the inelastic collision between two grains in section \ref{subsubchap:Reologia}.
-
-%    Segundo a \href{http://webofknowledge.com}{\textit{Web of Science}}, o número de produções publicadas com a palavra chave \textit{"Granular Materials"}, até $03/04/2018$, é de $8.618$ e segue a distribuição apresentada na figura \ref{fig:articles-year} ao longo dos anos. O estudo de materiais granulares também segue uma tendência crescente ao longo dos anos.
-    
-%\begin{figure}
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{04-figuras/articles-year.png}
-%    \caption{Produção científica acerca de materiais granulares com as palavras chave \textit{"Granular Materials"} ao longo dos anos.}
-%    \label{fig:articles-year}
-%\end{figure}
-
-\section{Theory}
+\section{Introduction}
 \label{subsection:Teoria}
 
-%    Como exemplos de materiais granulares temos areia, pedras, solos, fármacos, minérios, alimentos em grãos (arroz, milho, soja, etc.), e até mesmo o cinturão de asteroides e os anéis de Saturno. Só a areia compõe $10\%$ dos materiais da superfície do planeta Terra. Além disso, estima-se que o segundo material mais utilizado nas indústrias são materiais granulares, utilizando aproximadamente $10\%$ de toda a energia do planeta, sendo que o material mais utilizado é a própria água \cite{Sands_Powders_and_Grains}.
-
-    Examples of granular materials includes sand, stones, soils, drugs, ores, grain foods (rice, corn, soybeans \textit{etc}.), even the asteroid belt and Saturn's rings. The sand alone constitues 10\% of the materials on surface of planet Earth. Besides that, it is estimated that the second most used material in industries are granular materials, using approximately 10\% of all the energy on the planet, whether in extraction, transport, or processing, with the most used material being water \cite{Sands_Powders_and_Grains}.
+    Examples of granular materials includes sand, stones, soils, drugs, ores, grain foods (rice, corn, soybeans \textit{etc}.), even the asteroid belt and Saturn's rings. The sand alone constitutes 10\% of the materials on surface of planet Earth. Besides that, it is estimated that the second most used material in industries are granular materials, using approximately 10\% of all the energy on the planet, whether in extraction, transport, or processing, with the most used material being water \cite{Sands_Powders_and_Grains}.
 
     \begin{figure}
         \centering
@@ -59,13 +42,9 @@ Inelastic collision occurs when two or more grins collide losing part of their i
         \caption[Examples of granular materials.]{Examples of granular material. Figures taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
     \end{figure}
 
-%    Pela ausência de movimentos Brownianos, bem como pela dissipação de energia, sistemas granulares não sofrem relaxação espontânea de suas configurações estáveis na ausência de perturbações externas, principalmente na forma de vibrações, e portanto não apresentam ergodicidade\footnote{Um sistema ergódico tem característica de transitar entre seus microestados de energia espontaneamente, em intervalos de tempos, implicando que seus estados são todos equiprováveis quando analisados em um longuíssimo tempo \cite{Dissertacao, Srdjan-Tese, Granular_Solids_Liquids_and_Gases}.}.
-
     Due to the absence of Brownian movements, as well as the dissipation of energy in the contacts, granular systems does not undergo spontaneous relaxation of its stable configurations in the absence of external disturbances, and therefore do not present ergodicity. An ergodic system has the characteristic of visit their micro-states of energy spontaneously, implying that their states are all equiprobable when a very long time is taken in account \cite{Unifying_Concepts_in_Granular_Media_and_Glasses, Srdjan-Tese}.
 
-    To demonstrate this non-ergodicity, we can think about a pile of dry sand that rests at a base. If this base does not oscillate, the structure of the pile does not change, the structure of internal forces will remain unchanged, even if it is heated or cooled. This means that sand grains cannot transit between all equipotential states spontaneously, and then this sand pile will rest with internal configurations (chain-forces, stress tensors, grain contact, etc.) unchanged. In the section \ref{subchap:Fenomenologia}, one can find more details.
-
-%    Materiais granulares apresentam também particularidades quanto às suas fases. Apresentam-se individualmente em corpos sólidos, e quando o conglomerado está próximo do repouso, constituem a fase sólida do sistema. Porém, se o sistema é agitado, ou configurado além de um limiar crítico do ângulo de repouso, pode apresentar-se nas fases de granular líquido\footnote{Granulares líquidos podem possuir uma camada limite que flui sobre a camada sólida do sistema.} ou granular gasoso. Tal classificação ainda está em aberto na literatura, apesar de existirem proposições para o que seria a temperatura granular do sistema \cite{Granular_Solids_Liquids_and_Gases}.
+    To demonstrate this non-ergodicity, we can think about a pile of dry sand that rests at a base. If this base does not oscillate, the structure of the pile does not change, and consequently the structure of internal forces will remain unchanged, even if it is heated or cooled in certain limits. This means that sand grains cannot transit between all equipotential states spontaneously, and then this sand pile will rest with internal configurations (chain-forces, stress tensors, grain contact, etc.) unchanged. In the section \ref{subchap:Fenomenologia}, one can find more details.
 
     Granular materials also have particularities regarding their phases-like, analogously to the state of matter. They are presented individually in solid bodies, and when the grains are close to rest, they constitute the equivalent solid phase. However, if the granular system is slightly agitated, or configured beyond a critical threshold of angle of rest, its behavior can be similar of the liquid. Solid-like and liquid-like granular can coexist and a boundary layer may appear, that indicates the liquid-like flows over the solid-like. When a granular system is vigorously agitated, the behavior is alike gases, they tend to occupy large part of the container which contains them, meaning that its packing fraction ($\phi$) is low and the number of contacts between grains are much rarer, compared to the granular liquid-like and solid-like. An example of the granular states is shown in Figure \ref{fig:exemplo_fases}, where the solid-like phase is in the bottom, the liquid-like phase is flowing through layers in the middle, and the gaseous-like phase is flowing in a higher disordered portion at top. Such classification is still open in the literature, although there are proposals for what would be the granular temperature of the system, in analogy of thermal temperature \cite{Granular_Solids_Liquids_and_Gases}.
 
@@ -74,31 +53,22 @@ Inelastic collision occurs when two or more grins collide losing part of their i
     \begin{figure}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Fases.png}
-        \caption[Granular phases.]{Example of three granular phases according their kinetic energy. Dashed line is a proposition of the phase-like separations. The gas-like, refereed as gas in the Figure, phase is much more agitated and the contact between grains in this region is rare, compared to the other phases-like. The liquid-like phase, refereed as liquid in the Figure, is able to move, but still the slide each other. The solid-like phase, refereed as solid in the Figure, is an immobile region that grains are in contact each other and this contact does not change over time. Figure taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
+        \caption[Granular phases.]{Example of three granular phases according their kinetic energy. Dashed line is a proposition of the phase-like separations. The gas-like, refereed as gas in the Figure, phase is much more agitated and the contact between grains in this region is scarce, compared to the other phases-like. The liquid-like phase, refereed as liquid in the Figure, is moving in layers, and grains are sliding each other. The solid-like phase, refereed as solid in the Figure, is an immobile region that grains are in contact each other and the contact does not change over time. Figure taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
         \label{fig:exemplo_fases}
     \end{figure}
 
-%    Uma diferenciação entre sistemas granulares pode ser resultado direto das forças de interações entre os grãos. São chamados de granulares secos os sistemas que possuem apenas interações repulsivas, enquanto os granulares molhados apresentam forças de van der Waals nas interações grão a grão. Nesta tese, consideraremos apenas as interações repulsivas de contato, apesar de que em alguns casos, existe fluido envolvendo o material. Consideramos que todo o material que está envolvido pelo mesmo fluido não sofre forças de atração entre os mesmos grãos, e portanto, não está inclusa força de van der Waals na interação entre os grãos.
-
-    A differentiation between granular systems can be a direct result of the interaction forces between grains. Systems that have only repulsive interactions are called dry granulars, while wet granulars have van der Waals forces in grain-to-grain interactions. In this thesis, we will only consider repulsive contact interactions, although in some cases, there is a fluid surrounding the material. We consider that all the material that is involved by the fluid does not suffer forces of attraction, and therefore, van der Waals force is not included in the interaction between the grains.
+    A differentiation between granular systems can be a direct result of the interaction forces between grains. Systems that have only repulsive interactions are called dry granules, while wet granules have van der Waals forces in grain-to-grain interactions. In this thesis, we will only consider repulsive contact interactions, although in some cases, there is a fluid surrounding the material. We consider that all the material that is involved by the fluid does not suffer forces of attraction, and therefore, van der Waals force is not included in the interaction between the grains.
 
 \section{Fenomenology}
 \label{subchap:Fenomenologia}
-
-%Pilha de areia
-%    Talvez a primeira ideia sobre materiais granulares remeta ao empilhamento de areira. Nesse caso, tem-se uma pilha estática de areia amontoada sobre uma superfície. Em uma pilha como a apresentada na figura \ref{fig:angulo_repouso}, a deposição dos grãos na pilha faz com que o ângulo formado pela pilha e o plano horizontal $\theta_m$ seja o maior possível, chamado de ângulo de movimento, e quando coloca-se mais material sobre a pilha, as camadas superiores da pilha escorrem até a base, restaurando o ângulo ao menor valor $\theta_r$, chamado de ângulo de repouso \cite{Sands_Powders_and_Grains, Granular_Physics}. O rearranjo da pilha de areia depois da avalanche pode ser entendida como auto-organização\footnote{Um sistema que não possui controlador central, regido por vários agentes que interagem entre si, com regras conhecidas na interação dos agentes e exibem propriedade não prevista pelas interações entre os agentes caracterizam um Sistema Complexo. Uma propriedade característica de Sistemas Complexos e de materiais granulares é a auto-organização. Alguns autores \cite{Mixing_and_Segregation_of_Granular_Materials, Measuring_the_flowing_properties_of_powders_and_grains, Revisiting_localized_deformation_in_sand_with_complex_systems, Granular_matter_and_networks, Patterns_and_collective_behavior_in_granular_media} classificam materiais granulares dentro da área de estudo de Sistemas Complexos.} em materiais granulares. Uma boa aproximação para o ângulo de repouso é dada por:
-
     Perhaps the first image related to granular materials remit to the sand pile. In this case, a static pile of sand is heaped on a surface. In a pile like the one shown in Figure \ref{fig:angulo_repouso}, the deposition of the grains forms an angle $\theta _m$ as large as possible, called the angle of movement, and when more material is placed on the pile, the upper layers of the pile run down to the base, restoring the angle to the lowest value $\theta _r$, called the angle of repose \cite{Sands_Powders_and_Grains, Granular_Physics}. The rearrangement of the sand pile after the avalanche can be understood as an example of self-organized criticality in granular materials. A good approximation to the angle of repose is given by:
     \begin{equation}
         \label{equ:atrito}
         \tan(\theta) = \mu _s ,
     \end{equation}
-%onde $\theta_r$ é o ângulo de repouso, e $\mu _s$ é o coeficiente de atrito do material.
-where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static friction of the material's surface.
+where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static friction between grains.
 
-    A system which has no central controller, governed by various agents that interact with rules known in the interaction of agents, and exhibit unforeseen property feature a Complex System. A characteristic property of Complex Systems and granular materials is self-organization. Some authors \cite{Avalanche_Dynamics_in_a_Pile_of_Rice, Avalanche_Prediction_in_a_Self-Organized_Pile_of_Beads, Mixing_and_Segregation_of_Granular_Materials, Measuring_the_flowing_properties_of_powders_and_grains, Revisiting_localized_deformation_in_sand_with_complex_systems, Granular_matter_and_networks, Patterns_and_collective_behavior_in_granular_media, Florent-Tese} classify granular materials within the area of study Complex Systems.
-
-    Avalanche is the process phenomena that dropping some few grains in a pile part of the surface slides.
+    A system which has no central controller, governed by various agents that interact with rules known in the interaction of agents, and exhibit unforeseen property feature a Complex System. A characteristic property of Complex Systems and granular materials is self-organization. Some authors \cite{Avalanche_Dynamics_in_a_Pile_of_Rice, Avalanche_Prediction_in_a_Self-Organized_Pile_of_Beads, Mixing_and_Segregation_of_Granular_Materials, Measuring_the_flowing_properties_of_powders_and_grains, Revisiting_localized_deformation_in_sand_with_complex_systems, Granular_matter_and_networks, Patterns_and_collective_behavior_in_granular_media, Florent-Tese} classify granular materials within the area of study Complex Systems. An example of self-organization is avalanche\footnote{Avalanche is the process phenomena that dropping some few grains in a pile part of the surface slides.}.
 
     \begin{figure}
         \centering
@@ -107,15 +77,9 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
         \label{fig:angulo_repouso}
     \end{figure}
 
-%Biestabilidade da pilha
-%    Ainda em empilhamento de grãos, o método de preparação do sistema reflete-se no ângulo de repouso \cite{Dynamics_at_the_angle_of_repose}. Este histórico de preparação permite o sistema configurar-se diferentemente, e portanto, o ângulo de repouso assume valores diferentes utilizando o mesmo material. O ângulo de repouso depende do modo de relaxação em que o empilhamneto foi feito: um modo inercial que a relaxação é mais rápida, e um modo coletivo que a relaxação é mais lenta. Essas dinâmicas no ângulo de repouso o nome de biestabilidade do ângulo de repouso.
-
     Also in sand piles, the preparation method of the system is reflected in the angle of repose \cite{Dynamics_at_the_angle_of_repose}. This preparation history allows the system to be configured differently, and therefore, the angle of repose can assume different values using the same material. The angle of repose depends on the relaxation mode in which the pile was made: an inertial mode that relaxation is faster, and a collective mode that relaxation is slower. These dynamics in the angle of repose are called bistability of the angle of repose.
 
-%Cadeias de forças em diferentes pilhas
-%    Já que citamos as diferentes funções respostas nos empilhamentos de grãos, não podemos deixar de citar as cadeias de forças\footnote{Cadeias de forças consistem na rede de contatos entre os grãos que possuem força acima da força média do sistema. Em geral, mede-se as cadeias de forças são medidas a partir da função resposta \cite{The_Physics_of_Granular_Media}.}. A importância experimental da visualização das cadeias de forças se dá no entendimento da distribuição das forças internas que sustentam o material. Como exemplo, a figura \ref{fig:force_chain} indicia a cadeia de forças associada à função resposta de uma força puntual aplicada sobre o topo do material granular.
-
-    Another common property of dense granular materials is the force chain, which is the force arrangement through the compressed media. Force chains carry most part of the forces of the media and usually the compression stress coincide with the direction of the force chain \cite{Characterization_of_force_chains_in_granular_material, Granular_and_Complex_Materials}. The number of grains carrying larger force than the average force decays exponentially with increasing contact force. The force chain is a pathway that the force is transmitted, as shown in Figure \ref{fig:pathway_chain}. The interconnection between two or more branches of force chains forms a force network. The force network is then a subset of the contacts network. The experimental importance of visualizing the chain forces lies in understanding the distribution of the internal forces that sustains the material. As an example, Figure \ref{fig:force_chain} reveals the chain of forces due point force applied on the top of the granular material.
+    Another common property of dense granular materials is the force chain, which is the force arrangement through the compressed media. Force chains carry most part of the forces of the media and usually the compression stress coincide with the direction of the force chain \cite{Characterization_of_force_chains_in_granular_material, Granular_and_Complex_Materials}. The number of grains carrying larger forces than the average force decays exponentially with increasing contact force. The force chain is a pathway that the force is transmitted, as shown in Figure \ref{fig:pathway_chain}. The interconnection between two or more branches of force chains forms a force network. The force network is then a subset of the contacts network. The experimental importance of visualizing the chain forces lies in understanding the distribution of the internal forces that sustains the material. As an example, Figure \ref{fig:force_chain} reveals the chain of forces due point force applied on the top of the granular material.
 
 \begin{figure}
     \centering
@@ -127,15 +91,11 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{04-figuras/Cadeia_Forca.png}
-%    \caption{A aplicação de uma força puntual no topo do material resulta na cadeia de forças, que pode ser vista na função resposta do sistema, pois a componente gravitacional foi subtraída do mesmo. Neste caso, o sistema contém grãos fotoelásticos em uma distribuição bidimensional. Quanto mais escuras, maiores são as tensões no material. Figura retirada de \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}.}
     \caption[Example of force chain.]{The application of a point force on top of the material results in the chain of forces, which can be seen in the system's response function, after the gravitational component was subtracted from it. In this case, the system contains photoelastic grains in a two-dimensional space. Photoelastic grains diffracts light differently when a force is applied on it. The force applied on a photoelastic grain produces different tensions, which can be seen by lightning it with a polarized light, and then a polarizing plate blocks the non polarized light. The darker, the greater the stress in the material. Figure taken from \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}.}
     \label{fig:force_chain}
 \end{figure}
 
-%Formação de arcos
-%    As cadeias de forças são importantes para entender o fenômeno que está presente nos arcos de sustentação. Arcos são estruturas coletivas que possuem sustentação mútua, e, consequentemente, uma cadeia de forças ligando toda a estrutura, sendo capaz de sustentar o peso próprio e de todos os grãos acima, impedindo que os mesmos escoem. Na formação de arcos podem ocorrer efeitos de segregação, como verificado por Magalhães, C. e Magalhães, F. \cite{Caio-Tese, Felipe-Tese}.
-
-    Chains of forces are important to understand the phenomenon that is present in the arching effect. Arches are collective structures that have mutual support, and, consequently, a chain of forces linking the entire structure, being able to support their own weight and that of all the grains above, preventing them from flowing. In the formation of arches, segregation effects can occur, as verified by Magalhães, C. \cite{Caio-Tese} and the flow regimes in a funnel reported by Magalhães, F. \cite{Felipe-Tese}. Figure \ref{fig:arch_chain} is an example of arch and its chain forces.
+    Force chain are important to understand the phenomenon that is present in the arching effect. Arches are collective structures that have mutual support, and, consequently, a chain of forces linking the entire structure, being able to support their own weight and that of all the grains above, preventing them from flowing. In the formation of arches, segregation effects can occur, as verified by Magalhães, C. \cite{Caio-Tese} and the flow regimes in a funnel reported by Magalhães, F. \cite{Felipe-Tese}. Figure \ref{fig:arch_chain} is an example of arch and its chain forces.
 
 \begin{figure}
     \centering
@@ -144,11 +104,7 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
     \label{fig:arch_chain}
 \end{figure}
 
-%Pressão e tensão
     To better comprehend the rheology of dense granular materials, there is also the stress tensor, which is a macroscopic quantity of the outer product of contact force between grains and the displacement vector around the analyzed volume \cite{Granular_Physics, Nathalia-Dissertacao, Leticia-Dissertacao, Fabiola-Dissertacao, Force_Chains_Micro_Macro}. The stress tensor in granular materials shows us the preferable direction of a force propagation in the general form, and with it, one can infer how this granular assembly was built \cite{Memories_in_Sand}, like in Figure \ref{fig:pile_stress}.
-
-%Diferentes preparações, diferentes pressões
-%    Uma evidência de que o histórico de preparação altera a configuração do material é descrita nas referências \cite{Memories_in_Sand, Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}. A base circular apresentada na figura \ref{fig:pile_stress} foi feita com duas formas de deposição diferentes. No experimento, a pressão medida na base varia de acordo com a deposição, sendo que a deposição feita a partir do funil possui um pico de máximo de pressão em torno de $0,25$ e $0,5$ do raio da mesa, enquanto na deposição feita a partir da peneira apresenta pressão como espécie de platô entre o centro da mesa e $0,25$ do raio, com o máximo próximo do centro.
 
     An evidence that the preparation history changes the configuration of the material is described in the references \cite{Memories_in_Sand, Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}. The circular base shown in Figure \ref{fig:pile_stress} was made with two different depositions and the pressure profile is measured along the center. In the experiment, the pressure measured at the base varies according to the deposition, with the deposition made from the funnel having a maximum peak pressure around 0.25 and 0.5 of the table radius $r/R$, while in the table deposition made from the sieve presents pressure as a kind of plateau between the center of the table and 0.25 of the radius $r/R$, with the maximum close to the center.
 
@@ -157,38 +113,30 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Sand_Pile_GG_Experiment.png}
-%        \subcaption{Empilhamento a partir do funil.}
         \subcaption{Pile made from a funnel.}
         \label{fig:pressure_pile:GG}
     \end{minipage}
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Sand_Pile_GG_Pressure.png}
-%        \subcaption{Pressão na montagem a partir do funil.}
         \subcaption{Pressure profile from a funnel.}
         \label{fig:pressure_response:GG}
     \end{minipage}
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Sand_Pile_RL_Experiment.png}
-%        \subcaption{Empilhamento a partir da peneira.}
         \subcaption{Pile made from a sieve.}
         \label{fig:pressure_pile:RL}
     \end{minipage}
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Sand_Pile_RL_Pressure.png}
-%        \subcaption{Pressão na montagem a partir da peneira.}
         \subcaption{Pressure profile from a sieve.}
         \label{fig:pressure_response:RL}
     \end{minipage}
-%    \caption{A preparação das pilhas de areia reflete nas pressões medidas na base da pilha. Nas figuras \ref{fig:pressure_pile:GG} e \ref{fig:pressure_response:GG} a deposição a partir do funil cria um perfil de pressões que tem o pico fora do centro da pilha, enquanto nas figuras \ref{fig:pressure_pile:RL} e \ref{fig:pressure_response:RL} a deposição a partir da peneira cria um perfil de pressões que tem um platô e depois decai. Figuras retiradas de \cite{Memories_in_Sand}.}
     \caption[Effect of the preparation history using funnel and sieve.]{The preparation of the sand piles reflects on the pressures measured at the bottom of the pile. In the Panels \ref{fig:pressure_pile:GG} and \ref{fig:pressure_response:GG} the deposition from the funnel creates a pressure profile that peaks outside the center of the pile, while in the Panels \ref{fig:pressure_pile:RL} and \ref{fig:pressure_response:RL} the deposition from the sieve creates a pressure profile that has a plateau and decays on the edges. Figures taken from \cite{Memories_in_Sand}.}
     \label{fig:pile_stress}
 \end{figure}    
-
-%Função resposta em diferentes configurações
-%    Um estudo feito por Atman \textit{et al.} \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation} mostra que diferentes geometrias de materiais granulares resultam em diferentes funções respostas\footnote{Função resposta é a diferença entre duas configurações, uma antes de aplicar-se a carga de teste e após a aplicação da carga, mostrando-se a distribuição de forças sobre o material, ou a compressão do sistema \cite{The_Physics_of_Granular_Media}.}. Como exemplo, a figura \ref{fig:stress_response} mostra duas funções respostas para sistemas com geometria circular e pentagonal.
 
     A study by Atman \textit{et al.} \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation} shows that different preparation histories of granular materials result in different response functions. As an example, Figure \ref{fig:stress_response} shows two different responses, comparing different geometries of grains: circular and pentagonal. This means that when a localized force is applied over a granular assembly composed by organized assemblies, like the circular grains configuration shown in Panel \ref{fig:stress_response:circle}, the distribution caused by this force, spreads concentrated in two diagonals; while the localized force is applied over a disordered granular assembly, like this pentagonal grains configuration shown in Panel \ref{fig:stress_response:pentagon}, the distribution caused by this force, spreads more uniformly and deeper than the case applied to organized assembly. The response function of this example is the measurement of the stress after applying the load subtracted from the same preparation before applying the load.
 
@@ -206,7 +154,6 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
         \subcaption{Pentagonal grains.}
         \label{fig:stress_response:pentagon}
     \end{minipage}
-%    \caption{A aplicação de uma força em diferentes sistemas granulares resulta em diferentes funções respostas. A diferença entre estes sistemas é que a figura \ref{fig:stress_response:circle} possui grãos de geometria circular e possui maior ordem, enquanto a figura \ref{fig:stress_response:pentagon} possui geometria pentagonal e maior desordem. Figuras retiradas de \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}.}
     \caption[Stress response in ordered/disordered granular packings.]{Different granular systems exhibit different response functions. The main difference between these systems is that Panel \ref{fig:stress_response:circle} has higher organization and circular grains, while Panel \ref{fig:stress_response:pentagon} has higher disorder and pentagonal grains. Figures taken from \cite{Sensitivity_of_Stress_Response_Function_to_Packing_Preparation}.}
     \label{fig:stress_response}
 \end{figure}
@@ -222,43 +169,6 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
     \label{fig:box_Kolb}
 \end{figure}
 
-%Escoamento de granular
-%    Aproveitando o exemplo do empilhamento, observa-se que, na formação da pilha, após os grãos atingem o ângulo crítico, ocasiona-se uma avalanche do material. Na avalanche, a camada superior entra em movimento, enquanto as camadas abaixo continuam estáticas. Na movimentação da camada superior, o material granular se apresenta num estado como líquidos, enquanto a camada estática abaixo encontra-se no estado como sólido \cite{Granular_Solids_Liquids_and_Gases}. A figura \ref{fig:inclinacao} exemplifica a transição de fase sólido líquido entre as camadas.
-
-%\begin{figure}
-%    \centering
-%    \begin{minipage}{.45\linewidth}
-%        \centering
-%        \includegraphics[width=0.9\textwidth]{04-figuras/Pilha1.png}
-%        \subcaption{Pilha estática.}
-%        \label{fig:inclinacao:solido}
-%    \end{minipage}
-%    \begin{minipage}{.45\linewidth}
-%        \centering
-%        \includegraphics[width=0.9\textwidth]{04-figuras/Pilha2.png}
-%        \subcaption{Pilha escorrendo.}
-%        \label{fig:inclinacao:liquido}
-%    \end{minipage}
-%    \caption{Com o aumento do ângulo da pilha, nota-se que a camada superior desliza sobre a camada inferior (da figura \ref{fig:inclinacao:solido} para a figura \ref{fig:inclinacao:liquido}). Figuras retiradas de \cite{Granular_Solids_Liquids_and_Gases}.}
-%    \label{fig:inclinacao}
-%\end{figure}
-
-%    Escoamentos podem ocorrer então por tensões aplicadas no material, seja em uma inclinação da base, seja pela vibração do material. Como a mudança de configurações do material está relacionada a taxa de cisalhamento do material, mas a tensão de cisalhamento não é necessariamente proporcional a taxa de cisalhamento, este escoamento pode ser classificado como fluido não newtoniano.
-
-%Segregação
-%    Um fenômeno muito estudado é a segregação dos materiais granulares. O efeito de segregação ocorre em diferentes geometrias de material, densidades e coeficientes de atrito.
-
-%Vibração
-%    Vibrações no material granular fornecem energia ao sistema
-
-%Dilatação
-%    Uma curiosidade sobre os materiais granulares é que, quando estão submetidos a uma pressão e seu coeficiente de compactação está próximo do engarrafamento \cite{Non-Gaussian_behavior_in_jamming_unjamming_transition_in_dense_granular_materials}, uma dilatação tende a ocorrer, expandindo-se pelas bordas das fronteiras que confinam o material ou pelas outras direções de liberdade que o confinamento apresenta. Muitas vezes, ao aplicar-se uma pressão no material confinado, o coeficiente de compactação final pode ser menor que o inicial, indicando uma expansão volumétrica do sistema \cite{On_the_dilatancy}.
-
-    
-
-%Tamanho das medidas granulares: Microescala, mesoescala e macroescala
-%    As medidas em materiais granulares geralmente tentam caracterizar o material em duas escalas diferentes que se relacionam: microescala, que diz respeito das medidas na escala dos grãos, como atrito; e macroescala, que diz respeito das medidas na escala do sistema, como pressão e tensão de cisalhamento.
-
     Looking at the scales of granular materials, five separated scales are modeled, according to Radjai \textit{et al.} \cite{Modeling_Granular_Materials}, as shown in Figure \ref{fig:granular_scales}. From now on, when referred to micro-scale, we are talking about dynamics or measures that accounts the effects on contacts or in particles, like rheologycal models of grains and inter-particle forces. Meso-scale are the structure of packing, like chain forces, local packing fraction and coordination number. Coordination number is the number of grains in contact with one single grain. Macroscale is related to the effects on the material and the process, like the stress tensor of the agglomerate and the continuum description of granular materials \cite{Modeling_Granular_Materials}.
 
 \begin{figure}
@@ -268,8 +178,6 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
     \label{fig:granular_scales}
 \end{figure}
 
-%    No próximo capítulo descreveremos as equações e os procedimentos para realizar as simulações dos materiais granulares, desde o modelo de contatos até a inserção do fluido no sistema.
-
-    When a wet confined granular material is under pressure, one can see that the liquid shrinks into the material. This phenomena may be contra-intuitive, since when a liquid is squeezed, it is expelled from the container. If the liquid is mixed with granular material, like sand and sea water on a beach, when someone steps on the sand, the surface near the feet becomes dry. This effect was reported by Reynolds \cite{On_the_dilatancy}.
+    When a wet confined granular material is under pressure, one can see that the liquid shrinks into the material. This phenomena may be contra-intuitive, since when a liquid is squeezed, it is expelled from the container. If the liquid is mixed with granular material, like sand and sea water on a beach, when someone steps on the sand, the surface near the feet becomes dry. This effect was firstly reported by Reynolds \cite{On_the_dilatancy}.
 
     In the next chapter, we will describe the equations and procedures to carry out simulations of granular materials, taking account the contact model to simulate dry granular systems.

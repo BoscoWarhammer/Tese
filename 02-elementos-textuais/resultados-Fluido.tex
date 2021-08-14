@@ -88,9 +88,14 @@ and the proportionality constant is about 3.7. With this prediction, we can simu
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.495\textwidth]{04-figuras/TMa-qamp.pdf}
-    \includegraphics[width=0.495\textwidth]{04-figuras/TMc-Lsat.pdf}
-    \includegraphics[width=0.495\textwidth]{04-figuras/TMb-qwind.pdf}
+    \parbox{0.495\textwidth}{
+        \centering
+        \includegraphics[width=0.495\textwidth]{04-figuras/TMa-qamp.pdf}
+        \includegraphics[width=0.495\textwidth]{04-figuras/TMb-qwind.pdf}
+    }
+    \parbox{0.495\textwidth}{
+        \includegraphics[width=0.495\textwidth]{04-figuras/TMc-Lsat.pdf}
+    }
     \caption[Saturation length $L_\textrm{sat}$ for the transport.]{Example of modulated flux with the imposed wind (a). The amplitude of the modulated response in time: the amplitude takes about 2$T_\textrm{sat}$ to accommodate (a) and we extract the temporal cumulated response in (b). Finally, the saturation length is extracted from the difference of the curves imposed flux versus flux response (c). Each point in (c) corresponds to the curves with following parameters: \textcolor{red}{*} - $\mathcal{G}=0.3$ - $\Theta=0.25$ - $k=\frac{2\pi 13}{1000}$, \textcolor{orange}{$\blacksquare$} - $\mathcal{G}=0.3$ - $\Theta=0.25$ - $k=\frac{2\pi 5}{1000}$, \textcolor{magenta}{$\blacktriangledown$} - $\mathcal{G}=0.1$ - $\Theta=0.3$ - $k=\frac{2\pi 4}{1000}$, \textcolor{blue}{$\circ$} - $\mathcal{G}=0.3$ - $\Theta=0.45$ - $k=\frac{2\pi 13}{1000}$ and \textcolor{green}{$\Diamondblack$} - $\mathcal{G}=0.3$ - $\Theta=0.45$ - $k=\frac{2\pi 4}{1000}$. The more in quadrature the wind is, the less the error in extracting $L_\textrm{sat}$.}
     \label{fig:TM_lsat}
 \end{figure}

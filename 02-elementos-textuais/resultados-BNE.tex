@@ -4,11 +4,7 @@
 
 \chapter{Result Analysis and Discussion - BNE}
 \label{chap:Resultados-BNE}
-%    Nesta parte da tese, utilizaremos 2500 grãos. O diâmetro médio do grão é $d = 1\pm 2.5\%$, distribuídos uniformemente. O diâmetro do intruso é de $D = 5$ vezes o diâmetro médio dos grãos. A densidade de todos os grãos é a mesma, e vale $\rho = 1/\pi$, e portanto a massa média dos grãos é de $m = 0,25$, exceto quando estiver ressaltado nas figuras. A constante de mola na direção normal é de $k_{n} = 1000$ e a tangencial é de $k_{t} = 750$. A atuação do amortecedor é no regime crítico ($\gamma = 2\sqrt{m k}$), e vale aproximadamente $\gamma = \sqrt{10}$. O atrito dos grãos valem $\mu = 0,5$, tanto entre grãos, quanto entre paredes, quando houver. O passo de tempo ($dt=pT$) vale aproximadamente $dt = \frac{1}{2000\sqrt{10}}$, utilizando a fração de $p=0,01$ do período de oscilação do modelo de contato massa mola $T = \sqrt{\frac{m}{k}}$. A largura da caixa é de $L = 37.5$ diâmetros de grão.
-
-    In this Chapter we will present the results obtained from BNE simulations. These results were published in Reference \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}, also present in Appendix \ref{appendix:BNE}. The parameters we used to simulate the system is 2500 grains, with average diameter $d$ = 1 $\pm$ 2.5\%, with uniform distribution, the intruder diameter $D$ = 2.5$d$. Grains and intruder density $\rho$ = 4/$\pi$, leading the average mass $m$ = 1, the spring constant in the normal direction $k_{n}$ = 1000 and the spring constant in the tangential direction $k_{t}$ = 750, the critical damping coefficient $\gamma$ = 2$\sqrt{m_r k_{n}}$, $m_r$ = $\frac{m_i m_j}{m_i + m_j}$, the friction coefficient $\mu$ = 0.5 between grain-grain contact, grain-intruder contact, grain-wall intruder contact and intruder-wall contact. The time step dt = $\frac{1}{100}\sqrt{\frac{m_r}{k_n}}$, the width $w$ = 37.5$d$, the gravity acceleration $g$ = 1. Any different parameter used is described properly in each corresponding Figure and in the text. As an example, Figure \ref{fig:BNE}.
-
-%    Inicialmente, estudamos o sistema com paredes no fundo e nas laterais, formando uma caixa. Observamos, nestas simulações, correntes de convecção próximas às paredes.
+    In this Chapter we will present the results obtained from BNE simulations. These results were published in Reference \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}, also present in Appendix \ref{appendix:BNE}. The parameters we used to simulate the system is 2500 grains, with average diameter $d$ = 1 $\pm$ 2.5\%, with uniform distribution, the intruder diameter $D$ = 2.5$d$. Grains and intruder density $\rho$ = 4/$\pi$, leading the average mass $m$ = 1, the spring constant in the normal direction $k_{n}$ = 1000 and the spring constant in the tangential direction $k_{t}$ = 750, the critical damping coefficient $\gamma$ = 2$\sqrt{m_r k_{n}}$, $m_r$ = $\frac{m_i m_j}{m_i + m_j}$, the friction coefficient $\mu$ = 0.5 between grain-grain contact, grain-intruder contact, grain-wall intruder contact and intruder-wall contact. The time step $\Delta t = \frac{1}{100}\sqrt{\frac{m_r}{k_n}}$, the width $w$ = 37.5$d$, the gravity acceleration $g$ = 1. Any different parameter used is described properly in each corresponding Figure and in the text. As an example, Figure \ref{fig:BNE}.
 
 \begin{figure}
     \centering
@@ -28,41 +24,35 @@
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1.png}
-    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with frictional walls (fw). The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. Simulations run until $...\sqrt{d/g}$. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1.pdf}
+    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. Simulations run until 1550 $\sqrt{d/g}$. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE25000_Parede}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1-3.png}
-    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1/3.]{Time series for intruder horizontal position at different $\Gamma$ for system with frictional walls (fw). The density $\rho_I/\rho_g$ = 1/3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. Simulations run until $...\sqrt{d/g}$.}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1-3.pdf}
+    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1/3.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 1/3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_Parede_Densidade1-3}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D3.png}
-    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with frictional walls (fw). The density $\rho_I/\rho_g$ = 3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. Simulations run until $...\sqrt{d/g}$.}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D3.pdf}
+    \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_Parede_Densidade3}
 \end{figure}
 
-%    Percebemos que intrusos mais densos sobem mais lentamente que intrusos menos densos. Os tempos de subida, quando comparados, podem ser ordenados das figuras $\ref{fig:BNE25000_Parede_Densidade1-3} < \ref{fig:BNE25000_Parede} < \ref{fig:BNE25000_Parede_Densidade3}$. Assim como as correntes de convecção são mais intensas, o intruso sobe mais rapidamente e cai mais rapidamente, visto na amplitude de $\Gamma = 1,5$ para as figuras \ref{fig:BNE25000_Parede_Densidade1-3}, \ref{fig:BNE25000_Parede} e \ref{fig:BNE25000_Parede_Densidade3}, respectivamente.
-
     We saw that denser intruders rise more slowly than less dense intruders for all $\Gamma$. For this frequency, we saw the contrary predicted in the BNE, the denser would rise faster than the less dense. This effect may be a peculiar behavior for this frequency, or the density range we test. We also notice that the convection current is stronger the less dense the intruder is. As expected, the higher the $\Gamma$ the faster the ascent rate.
-
-%    Quando retirado o atrito entre os grãos e as paredes, temos que o efeito da convecção no sistema diminui, ocasionando uma subida mais lenta que quando o atrito está presente. A figura \ref{fig:BNE25000_sem_Atrito_Parede} mostra a subida do intruso no sistema em que as paredes não possuem atrito.
 
     When frictionless walls (flw) are in play, we saw that convection decreases, causing a slower ascent rate, compared to fw. Figure \ref{fig:BNE25000_sem_Atrito_Parede} shows the intruder rise in a flw system, in opposition to the explanation in the Reference \cite{Inertia_in_the_Brazil_nut_problem}. For flw, we saw that $\Gamma$ = 0.85 was not able to rise, while fw rises with slow ascent rate.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000PsemAtrito.png}
-    \caption[BNE with frictionless walls.]{Time series for intruder horizontal position at different $\Gamma$ for system with flw. The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000PsemAtrito.pdf}
+    \caption[BNE with frictionless walls.]{Time series for intruder horizontal position at different $\Gamma$ for system with frictionless walls (flw). The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_sem_Atrito_Parede}
 \end{figure}
-
-%    Ao comparar os tempos de subida do sistema que possui atrito nas paredes (figura \ref{fig:BNE25000_Parede}) com o sistema que não possui atrito nas paredes (figura \ref{fig:BNE25000_sem_Atrito_Parede}), percebemos que o tempo de subida é maior, além de que o sistema que possui agitação menor que a gravidade não sobe, mostrando que um dos fatores que importam para o \textit{BNE} são as correntes de convecção formadas próximas das paredes.
 
     When comparing the rise times of fw (figure \ref{fig:BNE25000_Parede}) with flw (figure \ref{fig:BNE25000_sem_Atrito_Parede}), we notice that the rise time is larger, and the system that has less agitation than gravity does not rise, showing that one of the factors that matter for the BNE are the convection currents formed close to the walls and the convection currents are enhanced by fw.
 
@@ -76,13 +66,11 @@
     \label{fig:BNE_walls}
 \end{figure}
 
-%    Quando retiramos o atrito do sistema, o intruso chega ao fundo do sistema, independente da amplitude de vibração. A figura \ref{fig:BNE25000_sem_Atrito} exibe o comportamento do intruso para o sistema sem atrito.
-
     When no friction is present on the system, the intruder sinks to the bottom, independently from the amplitude of the vibration. Figure \ref{fig:BNE25000_sem_Atrito} exhibits the height of the intruder in frictionless system. As expected, no friction on the system causes no BNE, and the simulations we have performed shows that the intruder sinks to bottom. We are not going to count this fact as a RBNE, since only friction has changed.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000semAtrito.png}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000semAtrito.pdf}
     \caption[Frictionless grains and walls.]{Time series for the intruder's fall in no friction system. Independent of $\Gamma$, the intruder sinks to the bottom.}
     \label{fig:BNE25000_sem_Atrito}
 \end{figure}
@@ -96,20 +84,14 @@
     \label{fig:BNE_intruderpbc}
 \end{figure}
 
-%    Se ao invés de retirarmos o atrito, retirarmos as paredes laterais formando uma condição periódica de contorno de largura $28$ diâmetros de grão, verificaremos que o \textit{BNE} não acontece para o período de vibração de $25000$ passos de tempo, como mostrado na figura \ref{fig:BNE25000_Contorno}.
-
     The as an example of pbc intruder ascent temporal profile, Figure \ref{fig:BNE30000_Contorno}. Two differences are present here, if we compare fw and pbc: the ascent time of the intruder for each $\Gamma$ and the shaken frequency. At the same frequency applied to the fw, the pbc did not rise at all. The response is shown in Figure \ref{fig:BNE_resonance}.
-
-%    Já no caso de períodos maiores, o BNE ocorre. A figura \ref{fig:BNE30000_Contorno} exemplifica o \textit{BNE} ocorrendo com condição periódica de contorno e período de vibração de $30000$ passos de tempo.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE30000Contorno.png}
+    \includegraphics[width=0.65\textwidth]{04-figuras/BNE30000Contorno.pdf}
     \caption[BNE with periodic boundary: time series.]{Time series for intruder horizontal position at different $\Gamma$ for system with pbc. The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. The value of $\omega$ = 0.213. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE30000_Contorno}
 \end{figure}
-
-%    Na figura \ref{fig:BNE30000_Contorno}, percebemos que acelerações menores que a gravidade não fazem o intruso ascender, enquanto acelerações próximas da gravidade tem um movimento de ascensão lento e em saltos. Por não haver paredes, as correntes de convecção não se formam no sistema, o que faz com que o intruso atinja o topo e não desça mais.
 
     In Figure \ref{fig:BNE30000_Contorno}, we see that accelerations less than gravity do not cause the intruder to ascend, while accelerations close to gravity have a slow, jumping ascent. Because there are no sidewalls, convection currents do not form in the system, which causes the intruder to reach the top and not descend any further. 
 
@@ -184,7 +166,5 @@ where $v(t)$ is the intruder vertical velocity at time $t$ and $\left< \cdot \ri
     \caption[BNE with periodic boundary: large deviation.]{Inset: $P(W_\tau)$ for $\Gamma = 1.25$ and several values of $\tau$ as shown in the legends, for both systems: with frictional walls at left and pbc at right. Main panels: collapse of the RF function calculated for $\Gamma = 1.25$, and several values of $ \tau$.  Data collapse was performed by dividing the ratio between upward and downward probabilities by the integration time $\tau$. For the range of integration times considered, a remarkable collapse is observed. The frictional walls case is shown at left and pbc at right panel. Observe that distributions for pbc are much more symmetric than those for fw, which lean strongly to the positive side. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:LDFgamma}
 \end{figure}
-
-%    No próximo capítulo, descreveremos os modos de transporte de grãos quando arrastados por um fluido.
 
     Next Chapter we describe the techniques to simulate the fluid.

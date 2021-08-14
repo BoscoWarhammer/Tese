@@ -14,7 +14,7 @@
 %    }
 %    \draw[color=red] plot[id=x] function{x};                         % Desenha a função normalizada
 %\end{tikzpicture}
-\begin{tikzpicture}[background rectangle/.style={fill=olive!45}, show background rectangle]                                     % Define o tamanho do domínio (o eixo x)
+\begin{tikzpicture}[background rectangle, show background rectangle]                                     % Define o tamanho do domínio (o eixo x)
     \begin{axis}[
         axis lines = left,
         xmin = 0, xmax = 550,

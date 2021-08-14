@@ -1,4 +1,4 @@
-\begin{tikzpicture}[background rectangle/.style={fill=olive!45}, show background rectangle]
+\begin{tikzpicture}[background rectangle, show background rectangle]
     \begin{semilogyaxis}[
         legend style={at={(0.5,-0.35)},anchor=north},
         axis lines = left,
