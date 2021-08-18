@@ -1,0 +1,27 @@
+\begin{table}
+    \centering
+    \begin{tabular}{l r}
+        \hline
+        Number of grains $n$ & $\sim$ 10000 \\
+        Average grain diameter $d$ & 1 $\pm$ 20\% $d$\\
+        Grains density $\rho^p$ & 6/$\pi$ $m/d^2$\\
+        Average mass $m$ & 1 $m$\\
+        Normal spring constant $k_{n}$ & 2500 $m g/d$\\
+        Tangential spring constant $k_{t}$ & 1875 $m g/d$ \\
+        Damping coefficient $\gamma$ & $\sim$ 0.84 $\sqrt{m k_{n}}$ \\
+        Restitution coefficient $\epsilon$ &  $\sim$ 0.25 \\
+        Friction coefficient\footnote{Grain-grain contact.} $\mu$ & 0.5 \\
+        Time step $\Delta t$ & $\frac{1}{50}\sqrt{\frac{m_r}{k_n}}$ \\
+        Width $w$ & 1000$d$ \\
+        Length $l$ & 1$d$\\
+        Gravity acceleration $g$ & 1$g$ \\
+        Density ratio $\mathcal{D}_{R}$ & 2 \\
+        Shields number\footnote{Equally spaced of $0.05$ units.} $\Theta$ & 0.05 to 0.5 \\
+        Galileo number\footnote{Geometrically spaced of $\sqrt{10}$ units.} $\mathcal{G}$ & 0.01 to 3 \\
+        Viscosity $\nu$ & $\frac{d}{\mathcal{G}} \sqrt{\left(\mathcal{D}_{R}-1\right)gd}$ \\
+        Characteristic shear velocity $u_{*}$ & $\sqrt{\Theta\left(\mathcal{D}_{R}-1\right)gd}$ \\
+        \hline \hline
+    \end{tabular}
+    \caption{Table of units related to the grains and fluid simulations.}
+    \label{tab:fluid}
+\end{table}

@@ -2,7 +2,7 @@
 \label{chap:CFD}
 
     In this Chapter we describe the model we chose to simulate the fluid, the hypotheses and approximations, the discretization of equations, some methods to solve them, the algorithm and the results of the fluid. The we chose to simulate a Finite Difference Method (FDM) with an Eularian\footnote{
-    Eularian method: a fixed mesh in space with the representative flow evolves in time. The reference point is in the position space.
+    Eulerian method: a fixed mesh in space with the representative flow evolves in time. The reference point is in the position space.
 
     Lagrangian method: a fixed mesh that moves with the frame and represents the flow in time. The reference point is in the velocity space.
 
@@ -10,31 +10,25 @@
 } method.
 
 \section{The fluid model}
-%    Para o fluido, a equação geral que rege o sistema é a equação de Navier-Stokes, que é a aplicação da segunda lei de Newton para a massa específica em meios contínuos e a aplicação das leis de conservação de massa e de momento \cite{Physical_Hydrodynamics, Fluid_Mechanics}. Para a equação da conservação de massa, temos a equação \ref{equ:conservacao_massa}:
     The general equation that governs the system is the Navier-Stokes equations, which is the application of Newton's second law to specific mass in continuous media and the application of the conservation laws of mass and momentum \cite{Physical_Hydrodynamics, Fluid_Mechanics}. For the equation of mass conservation, we have the Equation \ref{equ:conservacao_massa}: 
 \begin{equation}
     \frac{\partial \rho^{f}}{\partial t} +\vec{\nabla}.(\rho \vec{u}^{f}) = 0,
     \label{equ:conservacao_massa}
 \end{equation}
-%em que $\rho^{f}$ é a densidade do fluido, e $\vec{u}^{f}$ é a velocidade do fluido.
 where $\rho^{f}$ is the fluid density, and $\vec{u}^{f}$ is the fluid velocity.
 
-%    A equação \ref{equ:conservacao_momento} descreve a conservação do momento como:
     The Equation \ref{equ:conservacao_momento} describes the momentum conservation as:
 \begin{equation}
     \frac{\partial}{\partial t}\left(\rho^{f}\vec{u}^{f}\right) +\vec{\nabla}.\left(\rho^{f}\vec{u}^{f}\otimes\vec{u}^{f}\right) = \overline{\overline{\sigma}} +p_{ext},
     \label{equ:conservacao_momento}
 \end{equation}
-%em que $\rho^{f}$ é a densidade do fluido, $\vec{u}^{f}$ é a velocidade do fluido, $\overline{\overline{\sigma}}$ é o tensor tensão do fluido e $p_{ext}$ é a pressão causada por agentes externos, como a gravidade e as forças dos corpos que interagem com o fluido.
 where $\rho^{f}$ is the fluid density, $\vec{u}^{f}$ is the fluid velocity, $\overline{\overline{\sigma}}$ is the fluid stress tensor (pressure $p$ and viscosity $\tau$ terms) and $p_{ext}$ is the external pressure, or the body pressure like gravity or drag forces induced by presence of grains.
 
-%    Na formulação da conservação do momento, existe internamente a conservação da massa, e se escrevermos os termos da equação efetuando-se os produtos internos e as derivadas, teremos a equação \ref{equ:Navier-Stokes}, que é a equação de Navier-Stokes:
     In formulating the momentum conservation, there is internally the mass conservation, and if we write the terms of the equation making the inner products and the derivatives, we have the Equation: 
 \begin{equation}
     \rho^{f} \frac{\partial \vec{u}^{f}}{\partial t} +\rho^{f}\left(\vec{u}^{f}.\vec{\nabla}\right)\vec{u}^{f} = \vec{\nabla}.\overline{\overline{\sigma}} +p_{ext},
     \label{equ:Navier-Stokes}
 \end{equation}
-%em que $\rho^{f}$ é a densidade do fluido, $\vec{u}^{f}$ é a velocidade do fluido, $\overline{\overline{\sigma}}$ é o tensor tensão do fluido e $p_{ext}$ é a pressão causada por agentes externos e que o tensor tensão do fluido pode ser escrito em função das pressões internas e do cisalhamento do fluido, como na equação \ref{equ:tensor_tensao}:
 where $\rho^{f}$ is the fluid density, $\vec{u}^{f}$ is the fluid velocity, $\overline{\overline{\sigma}}$ is the fluid stress tensor (pressure $p$ and viscosity $\tau$ terms) and $p_{ext}$ is the body pressure. The fluid stress tensor $\overline{\overline{\sigma}}$ is written in 2D like:
 \begin{equation}
     \overline{\overline{\sigma}} = \left(
@@ -45,37 +39,29 @@ where $\rho^{f}$ is the fluid density, $\vec{u}^{f}$ is the fluid velocity, $\ov
     \right),
     \label{equ:tensor_tensao}
 \end{equation}
-%em que $\overline{\overline{\sigma}}$ é o tensor de tensão do fluido, $\sigma$ são as componentes de tensão e a pressão do fluido é $p=-\frac{1}{2}(\sigma_{xx}+\sigma_{yy})$, e $\tau$ são as componentes do cisalhamento do fluido, sendo que $\tau_{xy} = \tau_{yx}$, indicando que são simétricas.
 where $\overline{\overline{\sigma}}$ is the fluid stress tensor, $\sigma_{xx}$ and $\sigma_{zz}$ are the pressure components in the $x$ and $z$ directions, respectively, and the fluid pressure is $p=-\frac{1}{2}(\sigma_{xx}+\sigma_{zz})$, while the shear components are $\tau_{xz}$ and $\tau_{zx}$.
 
-%    As considerações feitas sobre o fluido são que o fluido é incompressível, que o fluido não circula na direção da gravidade (direção $x$ de escoamento), que possui condição periódica de contorno na direção de escoamento, ou seja, o que acontece de um lado do sistema é o mesmo que acontece no outro e o volume ocupado pelo fluido é o todo o volume não ocupado pelos corpos. As implicações destas condições simplificam as equações \ref{equ:conservacao_massa}, \ref{equ:conservacao_momento} e \ref{equ:Navier-Stokes}. No caso da conservação da massa a implicação da incompressibilidade do fluido é a conservação do volume ao longo de todo o tempo e todo o espaço. Já a condição periódica de contorno na direção do escoamento, em relação à  Navier-Stokes, equação \ref{equ:Navier-Stokes}, implica que a tensão na direção de escoamento seja nula, ou seja, $\sigma_{xx} = 0$ quando não houverem corpos. Para o fluido não circular na direção da gravidade, toda a camada de escoamento é tomada por uma média na direção do escoamento (direção $x$). Portanto, a simplificação do tensor de tensões do fluido resume-se a:
     The equations above describe most of the fluids, but other enclosures must be done to determine which technique is going to be applied, since the Navier-Stokes equations are not analytically solvable yet and in some cases we have more variables than equations. With this hint in mind, we decided to model the fluid as a incompressible Newtonian fluid. Additionally, we consider that there is no circulation of the fluid in the direction of the gravity (the fluid flows only in $x$ direction), have periodic boundary condition (pbc) in $x$ direction (what happens in the left boundary is exactly same condition to the right boundary) and is constant in the $x$ direction, setting a quasi-1D fluid flow, that changes in the $z$ direction, but only flows in $x$. The pbc implies in some simplifications on Equations \ref{equ:conservacao_massa}, \ref{equ:conservacao_momento} e \ref{equ:Navier-Stokes}. Automatically, to the Equation \ref{equ:conservacao_massa}, the incompressible Newtonian fluid approach leads to any variation in the fluid density $\rho^f$ to be null, so $\frac{\partial \rho^f}{\partial t} $ = 0, and if this part is null, then $\vec{\nabla}.(\rho \vec{u}^{f})$ = 0 is so, and as $\frac{\partial u_z^f}{\partial z}$ = 0, $\frac{\partial u_x^f}{\partial x}$ is also null, and it contributes to the assumption that the fluid should be the same in $x$ direction. Also the shear stress $\tau_{xz}$ = $\tau_{zx}$ is symmetric. The component of the pressure $\sigma_{xx}$ = 0, due to the pbc, in Equation \ref{equ:Navier-Stokes}. With all this simplification, we have the total shear stress written as:
 \begin{equation}
     \vec{\nabla}.\overline{\overline{\sigma}} = \frac{\partial \tau}{\partial z} \hat{x} - \frac{\partial p}{\partial z} \hat{z}
     \label{equ:divergente_tensor_tensao}
 \end{equation}
-%em que $\overline{\overline{\sigma}}$ é o tensor de tensão do fluido, $\tau$ é a componente do cisalhamento do fluido, $p$ é componente da pressão do fluido, $\hat{x}$ é a direção de escoamento do fluido e $\hat{y}$ é a direção da gravidade.
 where $\overline{\overline{\sigma}}$ is the stress tensor of the fluid, $\tau$ is the shear flow component, $p$ is the pressure of the fluid (which has only component in $z$ direction), $\hat{x}$ is the flow direction and $\hat{z}$ is the gravity direction.
 
-%    Uma importante medida é a taxa de deformação do fluido, dada por:
     An important measure is the fluid strain rate, given by: 
 \begin{equation}
     \dot{\gamma}_{xz} = \frac{1}{2} \left(\frac{\partial u_{x}}{\partial z} +\frac{\partial u_{z}}{\partial x} \right),
     \label{equ:taxa_deformacao}
 \end{equation}
-%em que $\dot{\gamma_{xy}}$ e $\dot{\gamma_{yx}}$ são as componentes do tensor da taxa de deformação, $u_{x}$ é a velocidade do fluido na direção de escoamento e $u_{y}$ é a velocidade do fluido na direção da gravidade. As componentes $\dot{\gamma_{xy}}$ e $\dot{\gamma_{yx}}$ são simétricas, sendo também equivalentes às componentes cruzadas do divergente do campo de velocidades.
 where $\dot{\gamma_{xz}}$ and $\dot{\gamma_{zx}}$ are the components of the strain rate tensor, $u_{x}$ is the fluid velocity in the flow direction and $u_{z}$ is the fluid velocity in the direction of gravity.
 
-%    O cisalhamento do fluido controla algumas características do fluido, como por exemplo o regime de escoamento. A equação que rege o cisalhamento é a equação \ref{equ:cisalhamento}:
     In this approach, the shear flow controls some characteristics of the fluid, such as the transition from laminar to turbulent approach. The following equation relates the shear and the strain rate:
 \begin{equation}
     \tau = \rho^{f}(\nu+\nu_{t})\dot{\gamma},
     \label{equ:cisalhamento}
 \end{equation}
-%em que $\tau$ é cisalhamento do fluido, $\rho^{f}$ é a densidade do fluido, $\nu$ é a viscosidade intrínseca do fluido, $\nu_{t}$ é a viscosidade que insere turbulência no fluido e $\dot{\gamma}$ é o tensor da taxa de deformação do fluido e é descrito pela equação \ref{equ:taxa_deformacao}. Para que o escoamento seja laminar em um fluido newtoniano, o termo de viscosidade turbulenta deve ser nulo.
 where $\tau$ is the shear flow, $\rho^{f}$ is the fluid density, $\nu$ is the intrinsic viscosity of the fluid, $\nu_t$ is the contribution of the turbulent model, in therms of viscosity, and $\gamma$ is the strain rate. To model a Newtonian fluid, the turbulent part must be null.
 
-%    Aplicando as hipóteses assumidas sobre o fluido na equação de Navier-Stokes (equação \ref{equ:Navier-Stokes}), tem-se o sistema de equações em relações às direções de escoamento do fluido ($x$) e da gravidade ($y$) iguais a:
     Appling the assumed hypothesis about the fluid in the Navier-Stokes equations (Equation \ref{equ:Navier-Stokes}), the following system according to the flow direction ($x$) and gravity ($z$):
 \begin{subequations}
     \begin{empheq}[left={}\empheqlbrace]{align}
@@ -86,7 +72,6 @@ where $\tau$ is the shear flow, $\rho^{f}$ is the fluid density, $\nu$ is the in
     \end{empheq}
     \label{equ:fluido}
 \end{subequations}
-%em que $\rho^{f}$ é a densidade do fluido, $u_{x}^{f}$ é a componente da velocidade na direção do escoamento, $\phi$ é o coeficiente de compactação dos corpos, $\tau$ é a componente do cisalhamento do fluido, $\sigma_{yy}$ é a componente da tensão no fluido, $p_{x}^{body}$ é a pressão que os corpos fazem sobre a direção de escoamento $x$, $p_{y}^{body}$ é a pressão que os corpos fazem sobre a direção gravitacional $y$ e $g$ é o valor da gravidade.
 where $\rho^f$ is the fluid density, $u_x^f$ is the velocity in the flow direction, $\tau$ is the shear stress, $\sigma_{zz}$ is the stress component in the direction of the gravity and $g$ is the value of the gravity acceleration.
 
     As expected, the change of pressure depends on gravity and fluid density. Integrating Equation \ref{equ:fluido_y}, the pressure is:
@@ -94,20 +79,18 @@ where $\rho^f$ is the fluid density, $u_x^f$ is the velocity in the flow directi
     \sigma_{zz} = \rho^f g z.
 \end{equation}
 
-%    Para a taxa de deformação do fluido, a aplicação das considerações do fluido resulta na equação \ref{equ:taxa_deformacao_final}:
     For the fluid strain rate, applying fluid considerations results in:
 \begin{equation}
     \dot{\gamma_{xy}} = \frac{\partial u_{x}}{\partial z},
     \label{equ:taxa_deformacao_final}
 \end{equation}
-%em que $\dot{\gamma_{xy}}$ é a componente do tensor da taxa de deformação, $u_{x}$ é a velocidade do fluido na direção de escoamento e $y$ é a direção da gravidade.
 where $\dot{\gamma_{xy}}$ is the strain rate tensor component, $u_x$ is the fluid velocity in the flow direction and $z$ is the gravity direction.
 
-    Now, lets analyse the regimes of the fluid: viscous steady-state and viscous transient.
+    Now, lets analyze the regimes of the fluid: viscous steady-state and viscous transient.
 
 \subsection{Viscous steady-state regime}
 \label{sec:viscous_steady}
-    For the viscous regime, all turbulence vanishes, than only viscosity plays a role in the shear. To find a steady-state than, the variation in time must be zero, or:
+    For the viscous regime, all turbulence vanishes, than only viscosity plays a role in the shear. To find a steady-state than, the variation of the velocity in time must be zero, or:
     \begin{equation}
         \frac{\partial u}{\partial t} = 0,
         \label{equ:dudt0}
@@ -117,7 +100,7 @@ meaning that:
         \frac{\partial \tau}{\partial z} = 0,
         \label{equ:dtaudz0}
     \end{equation}
-and if the variation on $\tau$ is independent of the time and space, in this special case of no turbulence, we can write equation \ref{equ:cisalhamento} in function of the variation of the velocity over the space as:
+and if the variation on $\tau$ is independent of the time and space, in this special case of no turbulence, we can write Equation \ref{equ:viscous_steady0} in function of the variation of the velocity over the space as:
     \begin{equation}
         \frac{\partial u}{\partial z} = \frac{\tau}{\rho \nu},
         \label{equ:viscous_steady0}
@@ -129,23 +112,23 @@ with $\tau = \rho {u_{*}}^{2}$ imposed on top ($u_{*}$ been the characteristic v
     \end{equation}
 with $u^+ = u/u_{*}$ and $z^+ = z u_{*}/\nu$.
 
-    \begin{figure}[H]
+\begin{figure}[H]
+    \centering
+    \parbox{0.495\textwidth}{
         \centering
-        \parbox{0.495\textwidth}{
-            \centering
-            \includegraphics[width= 0.45\textwidth]{04-figuras/viscous_steady_velocity.tikz}
-            \subcaption{Normalized velocity of viscous steady-state profile.}
-            \label{fig:viscous_steady_velocity}
-        }
-        \parbox{0.495\textwidth}{
-            \centering
-            \includegraphics[width= 0.45\textwidth]{04-figuras/viscous_steady_shear.tikz}
-            \subcaption{Normalized shear of viscous steady-state profile.}
-            \label{fig:viscous_steady_shear}
-        }
-        \caption[Steady-state analytical solution for viscous fluid profiles.]{Velocity and shear steady-state profiles for the viscous fluid. With viscosity, the response of the velocity profile tends to be a line, and the steady-state makes the shear profile a constant.}
-        \label{fig:viscous_steady}
-    \end{figure}
+        \includegraphics[width= 0.45\textwidth]{04-figuras/viscous_steady_velocity.tikz}
+        \subcaption{Normalized velocity of viscous steady-state profile.}
+        \label{fig:viscous_steady_velocity}
+    }
+    \parbox{0.495\textwidth}{
+        \centering
+        \includegraphics[width= 0.45\textwidth]{04-figuras/viscous_steady_shear.tikz}
+        \subcaption{Normalized shear of viscous steady-state profile.}
+        \label{fig:viscous_steady_shear}
+    }
+    \caption[Steady-state analytical solution for viscous fluid profiles.]{Velocity and shear steady-state profiles for the viscous fluid. With viscosity, the response of the velocity profile tends to be a line, and the steady-state makes the shear profile a constant.}
+    \label{fig:viscous_steady}
+\end{figure}
 
     As we are not limited by an upper boundary, the fluid has an infinity characteristic length in the steady-state regime.
 
@@ -155,11 +138,11 @@ with $u^+ = u/u_{*}$ and $z^+ = z u_{*}/\nu$.
     Having the stationary solution in hands, we can think if there is a possibility to describe the transient regime of the equation \ref{equ:fluido_x}. This is a linear partial differential equation: the diffusion equation. Equation \ref{equ:viscous_transient_velocity_full_solution} is the general solution\footnote{For more details, Attachments \ref{chap:Calculations} have the whole calculation to get in the solution we got. It is also described in \cite{Boyce}, Chapter 10.} with the boundary conditions and generic initial velocity profile $u_0(z)$.
 \begin{equation}
     \begin{split}
-        u^+ = z^+ +\frac{2}{h}\sum_{n=1}^\infty\Big\{
+        u^+ = z^+ +\frac{2}{h}\sum_{n=1}^\infty\Bigg\{
         &{\int_0^h\left[\frac{u_0\left(\zeta\right)}{u_*}-\frac{u_*}{\nu}\zeta\right]\sin\left(\pi\frac{2n-1}{2h}\zeta\right) \mathrm{d}\zeta}\\
         &{\sin\left(\pi\frac{2n-1}{2h}z\right)}
         {e^{-{\left(\pi\frac{2n-1}{2h}\right)}^2\nu t}}
-        \Big\},
+        \Bigg\},
     \end{split}
     \label{equ:viscous_transient_velocity_full_solution}
 \end{equation}
@@ -169,11 +152,11 @@ where $z^+$ is the normalized steady-state solution, $u_0(\zeta)/u_*$ is the nor
 
     Looking at the presented solution in equation \ref{equ:viscous_transient_velocity_full_solution}, we can see that it decays with an exponential in time, obeying the differential partial equation \ref{equ:fluido_x} according through time, and it is oscillates with an infinite sum of sin in function of space, which is the solution for differential equation of second order in the same equation \ref{equ:fluido_x}.
 
-    For the initial condition, we choose the one stationary regime with imposed shear as $\tau = \rho {\left(u_*-\Delta u_*\right)}^2$, and then $u_0(z)=(u_*-\Delta u_*)^2 z/\nu$. In terms of Fourier coefficients, it is like:
+    For the initial condition, we choose the one stationary regime with imposed shear as $\tau = \rho {\left(u_*-\Delta u_*\right)}^2$, and then $u_0(z)=(u_*-\Delta u_*)^2 z/\nu$. In terms of Fourier coefficients, we have:
     \begin{equation}
         -\frac{8}{\pi^2}h^+ \epsilon\left(2-\epsilon\right)\frac{\left(-1\right)^{n-1}}{\left(2n-1\right)^2},
     \end{equation}
-that is linear, because $u_0(z) = z(u_*-\Delta u_*)^2/\nu$ is linear in $z$. Then, with this, the solution become as following:
+that is linear in $z$, because $u_0(z) = z(u_*-\Delta u_*)^2/\nu$ is linear in $z$. Then, with this, the solution become as following:
 \begin{equation}
     \begin{split}
         u^+ = z^+ -\frac{8}{\pi^2}h^+\epsilon\left(2-\epsilon\right)\\
@@ -209,39 +192,39 @@ that is linear, because $u_0(z) = z(u_*-\Delta u_*)^2/\nu$ is linear in $z$. The
     \label{fig:viscous_transient}
 \end{figure}
 
-    Looking at the response on figure \ref{fig:viscous_transient}, one can see that it evolves like an exponential, but to be sure, the best way is to put the variables in semi-log scale. Figure \ref{fig:viscous_transient0} shows the response without the stationary value, focusing the nature of the transition regime.
+    Looking at the response on Figure \ref{fig:viscous_transient}, one can see that it evolves like an exponential, but to be sure, we plot the variables in semi-log scale. Figure \ref{fig:viscous_transient0} shows the response without the stationary value, focusing the nature of the transition regime.
 
-    \begin{figure}[H]
+\begin{figure}[H]
+    \centering
+    \parbox{1\textwidth}{
         \centering
-        \parbox{1\textwidth}{
-            \centering
-            \includegraphics[width=0.65\textwidth]{04-figuras/viscous_transient_velocity0.tikz}
-            \subcaption{Normalized mean velocity. In green we have Euler discretization method, in blue we have all Fourier modes and in red we have 1$^{st}$ Fourier mode of viscous transient-state subtracted the stationary regime. For the Fourier modes we have $h=10$ dotted, $h=25$ lined and $h=100$ dashed with $\Delta u_*/u_*$ varying from $10^{-1}$ to $10^{-3}$.}
-            \label{fig:viscous_transient_velocity0}
-        }
-        \parbox{1\textwidth}{
-            \centering
-            \includegraphics[width=0.65\textwidth]{04-figuras/viscous_transient_shear0.tikz}
-            \subcaption{Normalized shear of the bottom layer. In green we have Euler discretization method, in blue we have all Fourier modes and in red we have 1$^{st}$ Fourier mode of viscous transient-state subtracted the stationary regime. For the Fourier modes we have $h=10$ dotted, $h=25$ lined and $h=100$ dashed with $\Delta u_*/u_*$ varying from $10^{-1}$ to $10^{-3}$.}
-            \label{fig:viscous_transient_shear0}
-        }
-        \caption[Normalized profiles for viscous fluid.]{Normalized velocity and shear stress evolution of viscous transient-state profile through time. All curves collapses at the same one, showing that there is only one behavior that domains the response: the exponential decay. Indeed, as we have expected from the equation in time to go from one stationary regime to another stationary regime from an exponential decay.}
-        \label{fig:viscous_transient0}
-    \end{figure}
-
-    It is also important to look at the approximation of the Fourier's 1$^{st}$ mode in velocity $\mathcal{U}_1$ in comparison with the original function, that in this case is a line (equation \ref{equ:viscous_steady1}) for velocity, and is a constant for shear. Equation \ref{equ:mode1} contains the first mode linearized in $\Delta u_*$ and figure \ref{fig:mode1} has the visual comparison between approximation of the 1$^{st}$ mode and the full solution.
-
-    \begin{equation}
-        \mathcal{U}_1 = -\frac{u_*^2}{\nu}\frac{\Delta u_*}{u_*}h\frac{16}{\pi^2}\sin\left(\frac{\pi}{2h}z\right)
-        \label{equ:mode1}
-    \end{equation}
-
-    \begin{figure}[H]
+        \includegraphics[width=0.495\textwidth]{04-figuras/viscous_transient_velocity0.tikz}
+        \subcaption{Normalized mean velocity. In green we have Euler discretization method, in blue we have all Fourier modes and in red we have 1$^{st}$ Fourier mode of viscous transient-state subtracted the stationary regime. For the Fourier modes we have $h=10$ dotted, $h=25$ lined and $h=100$ dashed with $\Delta u_*/u_*$ varying from $10^{-1}$ to $10^{-3}$.}
+        \label{fig:viscous_transient_velocity0}
+    }
+    \parbox{1\textwidth}{
         \centering
-        \includegraphics[width=0.65\textwidth]{04-figuras/mode1.tikz}
-        \caption[1$^{st}$ Fourier mode for viscous fluid velocity.]{Amplitude of the first Fourier mode in comparison with full solution. In red, the initial amplitude of the first Fourier mode, in blue the initial amplitude of the all modes.}
-        \label{fig:mode1}
-    \end{figure}
+        \includegraphics[width=0.495\textwidth]{04-figuras/viscous_transient_shear0.tikz}
+        \subcaption{Normalized shear of the bottom layer. In green we have Euler discretization method, in blue we have all Fourier modes and in red we have 1$^{st}$ Fourier mode of viscous transient-state subtracted the stationary regime. For the Fourier modes we have $h=10$ dotted, $h=25$ lined and $h=100$ dashed with $\Delta u_*/u_*$ varying from $10^{-1}$ to $10^{-3}$.}
+        \label{fig:viscous_transient_shear0}
+    }
+    \caption[Normalized profiles for viscous fluid.]{Normalized velocity and shear stress evolution of viscous transient-state profile through time. All curves collapses at the same one, showing that there is only one behavior that domains the response: the exponential decay. Indeed, as we have expected from the equation in time to go from one stationary regime to another stationary regime from an exponential decay.}
+    \label{fig:viscous_transient0}
+\end{figure}
+
+    It is also important to look at the approximation of the Fourier's 1$^\textrm{st}$ mode in velocity $\mathcal{U}_1$ (Equation \ref{equ:mode1}) in comparison with the original function, that in this case is a line (Equation \ref{equ:viscous_steady1}) for velocity, and is a constant for shear. Equation \ref{equ:mode1} contains the first mode linearized in $\Delta u_*$ and figure \ref{fig:mode1} has the visual comparison between approximation of the 1$^{st}$ mode and the full solution.
+
+\begin{equation}
+    \mathcal{U}_1 = -\frac{u_*^2}{\nu}\frac{\Delta u_*}{u_*}h\frac{16}{\pi^2}\sin\left(\frac{\pi}{2h}z\right)
+    \label{equ:mode1}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{04-figuras/mode1.tikz}
+    \caption[Comparison between 1$^{st}$ Fourier mode and exact solution for viscous fluid velocity.]{Amplitude of the first Fourier mode in comparison with exact solution. In red, the initial amplitude of the first Fourier mode, in blue the initial amplitude of the all modes.}
+    \label{fig:mode1}
+\end{figure}
 
     With the description of the viscous transient regime described and approximated to the first Fourier mode and linearised around the ratio $\Delta u_*/u_*$, now it is time to introduce the turbulence term and see how it evolves in time.
 
@@ -249,52 +232,43 @@ that is linear, because $u_0(z) = z(u_*-\Delta u_*)^2/\nu$ is linear in $z$. The
 
 \section{Force model - Fluid forces}
 \label{subchap:Modelo_Forcas}
-%    As forças presentes nos sistemas modelados nesta tese incluem as forças de contato entre os agentes, que pertencem ao modelo reológico dos grãos, as forças de interação entre grão e fluido e a força gravitacional.
     The forces modelled in this thesis include the contact forces between agents (Chapter \ref{chap:DEM}, which belong to the rheological model of grains), the interaction forces between grain and fluid, and the gravitational force. 
 
 \label{subsubchap:Fluido}
-%    A força que o fluido exerce sobre os corpos pode ser entendida como contribuição de diferentes modelos e casos. Uma formulação mais detalhada sobre cada parcela de forças que o fluido exerce sobre cada corpo é descrita pela equação \ref{equ:forcas_fluido}:
     The force that the fluid exerts on the grains can be understood as a contribution from different models and cases. A more detailed formulation of each portion of forces that the fluid exerts on each body is described by the equation:
 \begin{equation}
     \vec{F}_{i}^{Fluid} = \vec{F}_{i}^{Arch} +\vec{F}_{i}^{Drag} +\vec{F}_{i}^{Magnus} +\vec{F}_{i}^{Lift} +\vec{F}_{i}^{AddedMass} +\vec{F}_{i}^{Basset},
     \label{equ:forcas_fluido}
 \end{equation}
-%em que $\vec{F}_{i}^{Fluid}$ é a contribuição total das forças que o fluido exerce sobre o corpo $i$, $\vec{F}_{i}^{Arch}$ é a força de Arquimedes sobre o corpo $i$, $\vec{F}_{i}^{Drag}$ é a força de arrasto sobre o corpo $i$, $\vec{F}_{i}^{Magnus}$ é a força de Magnus sobre o corpo $i$, $\vec{F}_{i}^{Lift}$ é a força de sustentação sobre o corpo $i$, $\vec{F}_{i}^{AddedMass}$ é a força de adição de massa sobre o corpo $i$ e $\vec{F}_{i}^{Basset}$ é a força histórica de Basset sobre o corpo $i$. Como simplificação do modelo, utilizaremos apenas as forças de Arquimedes e as forças de arraste do fluido \cite{Fluid_Mechanics, Numerical_simulation_of_turbulent_sediment_transport, Maurin-Tese}.
 where $\vec{F}_{i}^{Fluid}$ is the total forces contribution that the fluid exerts on the grain $i$, $\vec{F}_{i}^{Arch}$ is the Archimedes' force that acts on the grain $i$, $\vec{F}_{i}^{Drag}$ is the drag force on the grain $i$, $\vec{F}_{i}^{Magnus}$ is the Magnus' force on the grain $i$, $\vec{F}_{i}^{Lift}$ is the lift force on the grain $i$, $\vec{F}_{i}^{AddedMass}$ is the added mass force on the grain $i$ and $\vec{F}_{i}^{Basset}$ is the Basset's force on grain $i$. As a simplification of the model, we will use only Archimedes' and fluid drag forces \cite{Fluid_Mechanics, Numerical_simulation_of_turbulent_sediment_transport, Maurin-Tese}.
 
-%    A força de Arquimedes pode ser escrita como na equação \ref{equ:arquimedes}, enquanto a força de arraste pode ser escrita como na equação \ref{equ:arraste}:
     Archimedes' force can be written as in the equation \ref{equ:arquimedes}, while the drag force can be written as in the equation \ref{equ:arraste}: 
 \begin{equation}
     \vec{F}_{i}^{Arch} = \frac{\pi}{6} d_{i}^{3} \vec{\nabla}.\overline{\overline{\sigma}},
     \label{equ:arquimedes}
 \end{equation}
-%em que $\vec{F}_{i}^{Arch}$ é a força de Arquimedes no corpo $i$, $d_{i}$ é o diâmetro do corpo $i$ e $\vec{\nabla}.\overline{\overline{\sigma}}$ é o divergente do tensor de tensão do fluido $\overline{\overline{\sigma}}$, e:
 where  $\vec{F}_{i}^{Arch}$ is the Archimedes' force on grain $i$, $d_i$ is the diameter of the grain $i$ and $\vec{\nabla}.\overline{\overline{\sigma}}$ is the divergent of the fluid stress tensor $\overline{\overline{\sigma}}$, and:
 \begin{equation}
-    \vec{F}_{i}^{Drag} = \frac{\pi}{8}\rho_{f}d_{i}^{2}C_{d}(\mathcal{R}_{u})\left|\vec{u}_{f}-\vec{v}_{i}\right|(\vec{u}_{f}-\vec{v}_{i}),
+    \vec{F}_{i}^{Drag} = \frac{\pi}{8}\rho_{f}d_{i}^{2}C_{d}(\mathcal{G}_{u})\left|\vec{u}_{f}-\vec{v}_{i}\right|(\vec{u}_{f}-\vec{v}_{i}),
     \label{equ:arraste}
 \end{equation}
-%em que $\vec{F}_{i}^{Drag}$ é a força de arraste no corpo $i$, $\rho_{f}$ é a densidade do fluido, $d_{i}$ é o diâmetro do corpo $i$, $C_{d}(\mathcal{R}_{u})$ é o coeficiente de arrasto em função do número de Reynolds do corpo, descrito pela equação \ref{equ:reynolds_arraste}, $\vec{u}_{f}$ é a velocidade do fluido, $\vec{v}_{i}$ é a velocidade do corpo \cite{Numerical_simulation_of_turbulent_sediment_transport}.
-where $\vec{F}_{i}^{Drag}$ is the drag force on grain $i$, $\rho_f$ is the fluid density, $d_i$ is the diameter of the grain $i$, $C_{d}(\mathcal{R}_{u})$ is the drag coefficient based on the body Galileo number, described by Equation \ref{equ:reynolds_arraste}, $\vec{u}_{f}$ is the fluid velocity, $\vec{v}_{i}$ is the grain velocity \cite{Numerical_simulation_of_turbulent_sediment_transport}.
+where $\vec{F}_{i}^{Drag}$ is the drag force on grain $i$, $\rho_f$ is the fluid density, $d_i$ is the diameter of the grain $i$, $C_{d}(\mathcal{G}_{u})$ is the drag coefficient based on the body Galileo number, described by Equation \ref{equ:reynolds_arraste}, $\vec{u}_{f}$ is the fluid velocity, $\vec{v}_{i}$ is the grain velocity \cite{Numerical_simulation_of_turbulent_sediment_transport}.
 
 \begin{equation}
-    C_{u}(\mathcal{R}_{u}) = \left( \sqrt{C_{d}^{\infty}} +\sqrt{\frac{\mathcal{R}_{u}^{c}}{\mathcal{R}_{u}}} \right)^{2}
+    C_{u}(\mathcal{G}_{u}) = \left( \sqrt{C_{d}^{\infty}} +\sqrt{\frac{\mathcal{G}_{u}^{c}}{\mathcal{G}_{u}}} \right)^{2}
     \label{equ:reynolds_arraste}
 \end{equation}
-%em que $C_{u}(\mathcal{R}_{u})$ é o coeficiente de arrasto em função do número de Reynolds do corpo, $C_{d}^{\infty} \simeq 0.5$ é o coeficiente de arrasto do grão no limite turbulento ($\mathcal{R}_{u} \to \infty$), $\mathcal{R}_{u}^{c} \simeq 24$ é o número de Reynolds de transição do corpo na qual o coeficiente de arrasto torna-se quase constante e a equação \ref{equ:reynolds_fluido_grao} que relaciona o número de Reynolds do corpo com os parâmetros do sistema:
-where $C_{u}(\mathcal{R}_{u})$ is the drag coefficient based on the body Galileo number, $C_{d}^{\infty} \simeq$ 0.5 is the drag coefficient in the turbulent limit ($\mathcal{R}_{u} \to \infty$), $\mathcal{R}_{u}^{c} \simeq$ 24 is the body transition Galileo number, in which the drag coefficient becomes almost constant, and Equation \ref{equ:reynolds_fluido_grao} relates the body Galileo number to the parameters of the system:
+where $C_{u}(\mathcal{G}_{u})$ is the drag coefficient based on the body Galileo number, $C_{d}^{\infty} \simeq$ 0.5 is the drag coefficient in the turbulent limit ($\mathcal{G}_{u} \to \infty$), $\mathcal{G}_{u}^{c} \simeq$ 24 is the body transition Galileo number, in which the drag coefficient becomes almost constant, and Equation \ref{equ:reynolds_fluido_grao} relates the body Galileo number to the parameters of the system:
 \begin{equation}
-    \mathcal{R}_{u} = \frac{d_{i}}{\nu} \left| \vec{u}_{f} -\vec{v}_{i} \right|
+    \mathcal{G}_{u} = \frac{d_{i}}{\nu} \left| \vec{u}_{f} -\vec{v}_{i} \right|
     \label{equ:reynolds_fluido_grao}
 \end{equation}
-%em que $d_{i}$ é o diâmetro do corpo $i$, $\nu$ é a viscosidade dinâmica do sistema, $\vec{u}_{f}$ é a velocidade do fluido e $\vec{v}_{i}$ é a velocidade do corpo $i$.
 where $d_i$ is the diameter of the grain $i$, $\nu_{tot}$ is the dynamic viscosity of the system ($\nu+\nu_t$), $\vec{u}_{f}$ is the fluid velocity and $\vec{v}_i$ is the velocity of the grain $i$.
 
-    With these equations, grain and fluid exchange motion. By third Newton's law, grains exert body forces on the fluid, and fluid reacts with fluid forces on the grains.
+    With these equations, grain and fluid exchange motion. By third Newton's law, grains exert body forces on the fluid, and fluid reacts with fluid forces on the grains. By the computation of the fluid forces, we couple the exchange of momentum between grain and fluid, applying the fluid force on the grain divided by the area of the grain into the fluid.
 
 \subsection{Temporal discretization}
 \label{sec:discrete}
-%    Para o fluido, discretizamos a equação \ref{equ:fluido_x} de forma explícita\footnote{A forma explícita de resolução de um método de equações de diferenças resolve o sistema para o próximo passo de tempo com as operações originais da equação diferencial. Toda a discretização é feita sobre as funções do passo de tempo atual resultando no passo de tempo posterior. A desvantagem desta técnica é o fator de instabilidade da solução que pode vir a ocorrer. A vantagem é que o sistema sempre pode ser escrito por estas equações.}. Por causa da não linearidade das equações no termo de turbulência, ainda não conseguimos escrever uma expressão implícita\footnote{A forma implícita de resolução de um método de equações de diferenças resolve o sistema do próximo passo de tempo com base nas raízes da equação diferencial do problema. Toda a discretização é feita considerando as raízes que solucionam a equação. A desvantagem desta técnica é o fato de nem sempre existir algoritmo que encontre as raízes. A vantagem é que o fator de estabilidade é mais permissivo.} para este sistema. Alguns livros tratam exclusivamente o assunto da discretização da equação de difusão linear e estão referenciados em \cite{Transferencia_de_calor_e_mecanica_dos_fluidos_computacional, Numerical_Methods_for_Scientists_and_Engineers, Numerical_Recipes, Numerical_Solution_of_Partial_Differential_Equations}. A equação para o fluido, em sua forma discretizada torna-se então o sistema de equações \ref{equ:fluido_discreto}:
     To numerically solve the fluid equations, a mesh is constructed in $z$ direction, and average it in the $x$ direction each time step. This average make the system to be smoother, but at same time it gives the probability to have particles' properties in function of $z$. This smoothness makes the solution more stable to interact the fluid with the grains and update both of them. The first way to think in the discrete equations is the explicit\footnote{The explicit way of solving a FDM solves the system for the next time step with the original differential equation operations. All discretization is done on the functions of the current time step resulting in the later time step. The disadvantage of this technique is the instability factor of the solution that can occur. The advantage is that the system can always be written by these equations.} form. Then Equations \ref{equ:fluido_x} and \ref{equ:viscous_steady0} becomes:    
 \begin{subequations}
     \begin{empheq}[left={}\empheqlbrace]{align}
@@ -305,15 +279,14 @@ where $d_i$ is the diameter of the grain $i$, $\nu_{tot}$ is the dynamic viscosi
     \end{empheq}
     \label{equ:fluido_discreto_explicito}
 \end{subequations}
-%em que $k$ é o índice discretização espacial do fluido, $n$ é o passo de tempo, $u_{x}$ é a velocidade de escoamento do fluido, $\Delta y$ é o espaçamento da malha do fluido, $\Delta t$ é o intervalo entre os passos de tempo, $\rho^{f}$ é a densidade do fluido, $\tau$ é o cisalhamento do fluido, $P$ é a pressão que os corpos sólidos fazem no fluido, $\nu$ é a viscosidade do fluido e $l$ é o comprimento característico da turbulência.
 where $k$ is the fluid spatial discretization index, $n$ is the time step, ${U_x}_{\;k}^{n+1}$ is the fluid flow velocity in height $k \Delta z$ and time $(n+1)\Delta t$, ${U_x}_{\;k}^{n}$ is the fluid flow velocity in height $k \Delta z$ and time $n\Delta t$, $\Delta z$ is the fluid meshing space, $\Delta t$ is the time step interval, $\rho^f$ is the fluid density, $\phi$ is the packing fraction that solid part occupies, $\tau$ is fluid shear, $f_x$ is the force per volume in the $x$ direction that grains exert on the fluid, $\nu$ is the fluid viscosity. The stability condition must be obeyed:
 \begin{subequations}
     \begin{empheq}{align}
-        \frac{2\Delta t}{\left(\Delta z\right)^{2}} < 1 
+        \frac{2\Delta t}{\left(\Delta z\right)^{2}} < 1,
         \label{equ:estabilidade_laminar} \\
-        \frac{2\Delta t.System_{Size}}{\left(\Delta z\right)^{2}} < 1
+        \frac{2\Delta t}{\left(\Delta z\right)^{2}} < 1,
         \label{equ:estabilidade_turbulento}
-    \end{empheq},
+    \end{empheq}
     \label{equ:estabilidade}
 \end{subequations}
 if there is no grains to exert body force on the fluid, otherwise the stability must be much more rigorous, once numerical errors are amplified due to discretization \cite{Transferencia_de_calor_e_mecanica_dos_fluidos_computacional, Numerical_Methods_for_Scientists_and_Engineers, Numerical_Recipes, Numerical_Solution_of_Partial_Differential_Equations}.
@@ -323,7 +296,7 @@ if there is no grains to exert body force on the fluid, otherwise the stability 
     {U_{x}}_{\;k}^{\;n} -\frac{\Delta t}{\rho^f}\frac{\phi_{\;k}^{\;n}}{1-\phi_{\;k}^{\;n}}{f_x}_{\;k}^{\;n} = -\frac{\Delta t \nu}{\left(\Delta z\right)^2}{U_{x}}_{\;k-1}^{\;n+1} (1+2\frac{\Delta t \nu}{\left(\Delta z\right)^2}){U_{x}}_{\;k}^{\;n+1} -\frac{\Delta t \nu}{\left(\Delta z\right)^2}{U_{x}}_{\;k+1}^{\;n+1},
     \label{equ:fluido_discreto_implicito}
 \end{equation}
-where $k$ is the fluid spatial discretization index, $n$ is the time step, ${U_x}_{\;k}^{n+1}$ is the fluid flow velocity in height $k \Delta z$ and time $(n+1)\Delta t$, ${U_x}_{\;k}^{n}$ is the fluid flow velocity in height $k \Delta z$ and time $n\Delta t$, $\Delta z$ is the fluid meshing space, $\Delta t$ is the time step interval, $\rho^f$ is the fluid density, $\phi$ is the packing fraction that solid part occupies, $\tau$ is fluid shear, $f_x$ is the force per volume in the $x$ direction that grains exert on the fluid, $\nu$ is the fluid viscosity. But as we can inspect, it is not possible to direct extract the result from this equation, since we have a temporal dependency. The lucky part of it is that this equation can be written in a linear matrix form:
+where $k$ is the fluid spatial discretization index, $n$ is the time step, ${U_x}_{\;k}^{n+1}$ is the fluid flow velocity in height $k \Delta z$ and time $(n+1)\Delta t$, ${U_x}_{\;k}^{n}$ is the fluid flow velocity in height $k \Delta z$ and time $n\Delta t$, $\Delta z$ is the fluid meshing space, $\Delta t$ is the time step interval, $\rho^f$ is the fluid density, $\phi$ is the packing fraction that solid part occupies, $\tau$ is fluid shear, $f_x$ is the force per volume in the $x$ direction that grains exert on the fluid, $\nu$ is the fluid viscosity. But as we can inspect, it is not possible to direct extract the result from this equation, since we have a temporal dependency. For our lucky\footnote{Unluckily there is no implicit form for turbulent model. To solve the turbulent part by implicit form, one can use a Newton-Raphson algorithm to find the roots and with the root invert the system. I personally chose to do not include this topic in this thesis, once I have not tested the algorithm nor could find the approximated analytical solution to temporal evolution of the Prandl turbulent model.} there is an implicit form and this equation can be written in a linear matrix form:
 \begin{equation}
     \left[Tridiag\right].\left[{U_x}_{\;k}^{n+1}\right] = \left[{U_x}_{\;k}^{n} -\lambda \frac{\phi}{1-\phi} {f_x}_{\;k}^{n}\right],
 \end{equation}
@@ -340,7 +313,6 @@ where $\left[Tridiag\right]$ is a tridiagonal matrix and $\lambda = \frac{\nu \D
 \input{07-algoritmos/forcas-fluido.tex}
 
 \subsection{The fluid}
-%    A rotina de cálculo do fluido consiste na atualização da malha do fluido\footnote{A malha do fluido consiste na divisão geométrica do espaço para realizar simulação, e é baseada em pontos discretos do espaço associados a uma função contínua. Este processo é o FDM \cite{Numerical_Heat_Transfer_and_Fluid_Flow}.} em função do sistema de equações \ref{equ:fluido_discreto_explicito} e \ref{equ:fluido_discreto_implicito}. A malha deste fluido é unidimensional, uma vez que consideramos a variação de velocidades apenas na direção $y$. Assim, consideramos uma malha linear de espaçamento $\Delta y$, sendo que $\Delta y$ é uma fração do grão médio do sistema. Para uma boa amostragem, utilizamos $\Delta y \simeq 0.1 d$, em que $d$ é o diâmetro médio do grão. Para o cálculo da pressão que o fluido exerce sobre o grão, utilizamos a fração do corpo que pertence à camada em que o mesmo está inserido. A soma de todas as frações de corpos na camada resulta no coeficiente de compactação.
     The fluid calculation routine consists of updating the fluid mesh\footnote{The fluid mesh consists of the geometric division of space to perform simulation, and is based on discrete points in space associated with a continuous function. This process is the Finite Discrete Method (FDM) \cite{Numerical_Heat_Transfer_and_Fluid_Flow}.} as a function of the system of Equations \ref{equ:fluido_discreto_explicito} and \ref{equ:fluido_discreto_implicito}. The mesh of this fluid is one-dimensional, since we consider the variation of velocities only in the $z$ direction. Thus, we consider a linear mesh of spacing $\Delta z$, where $\Delta z$ is a fraction of the average grain of the system. For good sampling, we use $\Delta z \simeq$ 0.1$d$, where $d$ is the average grain diameter. To calculate the pressure that the fluid exerts on the grain, we use the fraction of the body that belongs to the layer in which it is inserted. The sum of all body fractions in the layer results in the packing fraction.
 
 \input{07-algoritmos/fluido.tex}
@@ -350,39 +322,31 @@ where $\left[Tridiag\right]$ is a tridiagonal matrix and $\lambda = \frac{\nu \D
 \input{07-algoritmos/Thomas.tex}
 
 \section{Important parameters}
-%    Para o fluido, três parâmetros adimensionais de controle são importantes: a razão de densidade, descrita pela equação \ref{equ:razao_densidade}, o número de Galileo, que relaciona as forças inerciais com as forças viscosas, descrito pela equação \ref{equ:Reynolds} e o número de Shields, que relaciona as forças de arrasto com as forças inerciais, descrito pela equação \ref{equ:Shields} \cite{Numerical_simulation_of_turbulent_sediment_transport}.
     For the fluid, three dimensionless control parameters are important: the density ratio, described by the Equation \ref{equ:razao_densidade}, the Galileo number, which relates the inertial forces with the viscous forces, described by the Equation \ref{equ:Reynolds} and the number of Shields, which relates drag forces to inertial forces, described by the Equation \ref{equ:Shields} \cite{Numerical_simulation_of_turbulent_sediment_transport}.
 
-%    A seguir, a equação que descreve a razão de densidades entre grão e fluido:
     The following equation describes the density ratio between grain and fluid:
 \begin{equation}
     \label{equ:razao_densidade}
     \mathcal{D}_{R} = \frac{\rho^{p}}{\rho^{f}},
 \end{equation}
-%em que $\mathcal{D}_{R}$ é a razão de densidade, $\rho^{body}$ é a densidade do corpo e $\rho^{f}$ é a densidade do fluido.
-where $\mathcal{D}_{R}$ is the density ratio, $\rho^{p}$ is the grain density and $\rho_f$ is the fluid density.
+where $\mathcal{D}_{R}$ is the density ratio, $\rho^{p}$ is the grain density and $\rho^f$ is the fluid density.
 
-%    O segundo parâmetro adimensional de controle do fluido é o número de Galileo, dado pela equação:
     The second dimensionless fluid control parameter is the Galileo number, given by:
 \begin{equation}
     \label{equ:Reynolds}
     \mathcal{G} = \frac{d}{\nu}\sqrt{\left(\mathcal{D}_{R}-1\right)gd},
 \end{equation}
-%em que $\mathcal{G}$ é o número de Galieu na escala do corpo, $d$ é o diâmetro médio do corpo, $\nu$ é a viscosidade do fluido, $\mathcal{D}_{R}$ é a razão de densidade e $g$ é o valor de gravidade do sistema.
 where $\mathcal{G}$ is the Galileo number in the grain scale, $d$ is the average grain diameter, $\nu$ is the fluid velocity, $\mathcal{D}_{R}$ is the density ratio and $g$ is the gravity value of the system.
 
-%    O terceiro parâmetro adimensional de controle do fluido é o número de Shields, dado pela equação:
     The third dimensionless fluid control parameter is the Shields number:
 \begin{equation}
     \label{equ:Shields}
     \Theta = \frac{u_{*}^{2}}{\left(\mathcal{D}_{R}-1\right)gd},
 \end{equation}
-%em que $\Theta$ é o número de Shields, $u_{*}$ é a velocidade de cisalhamento imposta para o fluido, $\mathcal{D}_{R}$ é a razão de densidade, $g$ é o valor de gravidade do sistema e $d$ é o diâmetro médio do corpo.
 where $\Theta$ is the Shields number, $u_{*}$ is the characteristic shear velocity, $\mathcal{D}_{R}$ is the density ratio, $g$ is the gravity value and $d$ is the average grain diameter.
 
     The Table \ref{tab:units} shows some dimensionless parameters we use in this thesis.
 
 \input{05-tabelas/normunitsfluid.tex}
 
-%    No próximo capítulo descreveremos o transporte de sedimentos.
     Next Chapter we describe the sediment transport.

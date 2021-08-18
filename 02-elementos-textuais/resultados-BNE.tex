@@ -4,41 +4,45 @@
 
 \chapter{Result Analysis and Discussion - BNE}
 \label{chap:Resultados-BNE}
-    In this Chapter we will present the results obtained from BNE simulations. These results were published in Reference \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}, also present in Appendix \ref{appendix:BNE}. The parameters we used to simulate the system is 2500 grains, with average diameter $d$ = 1 $\pm$ 2.5\%, with uniform distribution, the intruder diameter $D$ = 2.5$d$. Grains and intruder density $\rho$ = 4/$\pi$, leading the average mass $m$ = 1, the spring constant in the normal direction $k_{n}$ = 1000 and the spring constant in the tangential direction $k_{t}$ = 750, the critical damping coefficient $\gamma$ = 2$\sqrt{m_r k_{n}}$, $m_r$ = $\frac{m_i m_j}{m_i + m_j}$, the friction coefficient $\mu$ = 0.5 between grain-grain contact, grain-intruder contact, grain-wall intruder contact and intruder-wall contact. The time step $\Delta t = \frac{1}{100}\sqrt{\frac{m_r}{k_n}}$, the width $w$ = 37.5$d$, the gravity acceleration $g$ = 1. Any different parameter used is described properly in each corresponding Figure and in the text. As an example, Figure \ref{fig:BNE}.
+    In this Chapter we will present the results obtained from BNE simulations. These results were published in Reference \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}, also present in Appendix \ref{appendix:BNE}. First off, set the configuration to run the simulation distributing all grains in the region, where bottom wall is positioned as reference zero. The initial position of the grains are spatially separated by 1$d$ each other, and the intruder is set in the middle. Then we let the grains fall under gravity, in a rain-like deposition. We wait the kinetic energy vanish in this system and then we start to vibrate the walls. The parameters we use in the simulations are specified in the Table \ref{tab:BNE}, and any different parameter used is described properly in each corresponding Figure and in the text. As an example, a snapshot of the system is presented in Figure \ref{fig:BNE}.
 
-\begin{figure}
+\input{05-tabelas/BNE.tex}
+
+%    The parameters we used to simulate the system is 2500 grains, with average diameter $d$ = 1 $\pm$ 2.5\%, with uniform distribution, the intruder diameter $D$ = 2.5$d$. Grains and intruder density $\rho$ = 4/$\pi$, leading the average mass $m$ = 1, the spring constant in the normal direction $k_{n}$ = 1000 and the spring constant in the tangential direction $k_{t}$ = 750, the critical damping coefficient $\gamma$ = 2$\sqrt{m_r k_{n}}$, $m_r$ = $\frac{m_i m_j}{m_i + m_j}$, the friction coefficient $\mu$ = 0.5 between grain-grain contact, grain-intruder contact, grain-wall intruder contact and intruder-wall contact. The time step $\Delta t = \frac{1}{100}\sqrt{\frac{m_r}{k_n}}$, the width $w$ = 37.5$d$, the gravity acceleration $g$ = 1. Any different parameter used is described properly in each corresponding Figure and in the text. As an example, Figure \ref{fig:BNE}.
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{04-figuras/BNE.pdf}
-    \caption[BNE snapshot.]{In panel (a), a snapshot of the system lateral walls. Grains are represented by discs: hollow discs ($\textcolor{black}{\circ}$) are moving downward (with gravity) while filled ones ($\textcolor{black}{\bullet}$) are moving upward (against gravity). Color level shown at left side indicates the magnitude of the speed: red indicates no movement while blue indicates the maximum value for the speed. It is worth noting the inertia of the intruder accelerating the grains above him (bluish grains). It is also possible to observe the transition between the grains rising and falling in the reddish region around the intruder, a characteristic responsible for the granular ratchet effect. While the intruder easily displaces the grains on the way up, he is unable to move the grains that descend due to the steric exclusion. In panel (b) a sinusoidal displacement imposed to the substrate. This snapshot was taken after the minimum of the oscillation of the substrate, marked as a blue dot in this plot. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
+    \caption[BNE snapshot.]{In panel (a), a snapshot of the system with lateral walls. Grains are represented by discs: hollow discs ($\textcolor{black}{\circ}$) are moving downward (with gravity) while filled ones ($\textcolor{black}{\bullet}$) are moving upward (against gravity). Color level shown at left side indicates the magnitude of the speed: red indicates no movement while blue indicates the maximum value for the speed. It is worth noting the inertia of the intruder accelerating the grains above him (bluish grains). It is also possible to observe the transition between the grains rising and falling in the reddish region around the intruder, a characteristic responsible for the granular ratchet effect. While the intruder easily displaces the grains on the way up, he is unable to move the grains that descend due to the steric exclusion. In panel (b) a sinusoidal displacement imposed to the substrate. This snapshot was taken after the minimum of the oscillation of the substrate, marked as a blue dot in this plot. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE}
 \end{figure}
 
-    Initially, we studied the system with bottom and sidewalls, forming a box. In these simulations, we observed convection currents close to the walls. This convection currents are the main contribution to the rise of the intruder. The sequential position of the intruder in a single example is shown in Figure \ref{fig:BNE_intruderwalls}. The Figures \ref{fig:BNE25000_Parede}, \ref{fig:BNE25000_Parede_Densidade1-3}, \ref{fig:BNE25000_Parede_Densidade3}, \ref{fig:BNE25000_sem_Atrito_Parede} and \ref{fig:BNE25000_sem_Atrito} show ascent profiles of the intruder.
+    Initially, we studied the system with bottom and sidewalls, forming a box. In these simulations, we observed convection currents close to the walls. This convection currents are the main contribution to the rise of the intruder, in accordance with the Reference \cite{Scaling_behavior_in_convection-driven_Brazil-nut_effect}. The sequential position of the intruder in a single example is shown in Figure \ref{fig:BNE_intruderwalls}. The Figures \ref{fig:BNE25000_Parede}, \ref{fig:BNE25000_Parede_Densidade1-3}, \ref{fig:BNE25000_Parede_Densidade3}, \ref{fig:BNE25000_sem_Atrito_Parede} and \ref{fig:BNE25000_sem_Atrito} show ascent profiles of the intruder.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{04-figuras/BNE_PositionWalls.pdf}
     \caption[BNE with walls: sample of intruder positions.]{Sequential positions of the intruder $(x, y)$ taken at constant time intervals (0.316 $\sqrt{d/g}$), for a system with lateral frictional walls (fw). The shaken frequency $\omega$ = 0.256$\sqrt{d/g}$. $y$ = 0 indicates the box floor and the unities are in unities of the mean grain diameter. The change in colors indicates the time elapsed in the simulation, the red corresponds to the beginning of the simulation and the blue to the end.}
     \label{fig:BNE_intruderwalls}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE25000D1.pdf}
     \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. Simulations run until 1550 $\sqrt{d/g}$. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE25000_Parede}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D1-3.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE25000D1-3.pdf}
     \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1/3.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 1/3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_Parede_Densidade1-3}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000D3.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE25000D3.pdf}
     \caption[BNE with frictional walls: $\rho_I/\rho_g$ = 1.]{Time series for intruder horizontal position at different $\Gamma$ for system with fw. The density $\rho_I/\rho_g$ = 3, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_Parede_Densidade3}
 \end{figure}
@@ -47,9 +51,9 @@
 
     When frictionless walls (flw) are in play, we saw that convection decreases, causing a slower ascent rate, compared to fw. Figure \ref{fig:BNE25000_sem_Atrito_Parede} shows the intruder rise in a flw system, in opposition to the explanation in the Reference \cite{Inertia_in_the_Brazil_nut_problem}. For flw, we saw that $\Gamma$ = 0.85 was not able to rise, while fw rises with slow ascent rate.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000PsemAtrito.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE25000PsemAtrito.pdf}
     \caption[BNE with frictionless walls.]{Time series for intruder horizontal position at different $\Gamma$ for system with frictionless walls (flw). The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media.}
     \label{fig:BNE25000_sem_Atrito_Parede}
 \end{figure}
@@ -58,7 +62,7 @@
 
     We define the ascent rate as the difference between the initial position of the intruder to its highest position, then divide this difference by the time it takes to rise. Than we plot the ascent rate versus shaken frequency for each $\Gamma$.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\linewidth]{04-figuras/BNE_FW_Density.pdf} \\
     \includegraphics[width=0.65\linewidth]{04-figuras/BNE_W.pdf}
@@ -68,16 +72,16 @@
 
     When no friction is present on the system, the intruder sinks to the bottom, independently from the amplitude of the vibration. Figure \ref{fig:BNE25000_sem_Atrito} exhibits the height of the intruder in frictionless system. As expected, no friction on the system causes no BNE, and the simulations we have performed shows that the intruder sinks to bottom. We are not going to count this fact as a RBNE, since only friction has changed.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE25000semAtrito.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE25000semAtrito.pdf}
     \caption[Frictionless grains and walls.]{Time series for the intruder's fall in no friction system. Independent of $\Gamma$, the intruder sinks to the bottom.}
     \label{fig:BNE25000_sem_Atrito}
 \end{figure}
 
     If instead of having sidewalls, we replace them with a periodic boundary condition (pbc), we could have the intruder crossing from one side to another, something impossible to do with walls, but also we expect to do not have the sidewalls effect, like convection currents. As an example of the intruder position through time, Figure \ref{fig:BNE_intruderpbc}. A difference between fw and pbc is the fact that the intruder can follow the convection current in fw and sink a little bit, while in pbc it does not sink in the media.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{04-figuras/BNE_PositionPBC.pdf}
     \caption[BNE with periodic boundary: sample of intruder positions.]{Sequential positions of the intruder $(x, y)$ taken at constant time intervals (0.316 $\sqrt{d/g}$), for a system with pbc. The shaken frequency $\omega$ = 0.213$\sqrt{d/g}$. $y$ = 0 indicates the box floor and the unities are in unities of the mean grain diameter. The change in colors indicates the time elapsed in the simulation, the red corresponds to the beginning of the simulation and the blue to the end. The width of the pbc in this sequential positions is $w$ = 25$d$. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
@@ -86,18 +90,18 @@
 
     The as an example of pbc intruder ascent temporal profile, Figure \ref{fig:BNE30000_Contorno}. Two differences are present here, if we compare fw and pbc: the ascent time of the intruder for each $\Gamma$ and the shaken frequency. At the same frequency applied to the fw, the pbc did not rise at all. The response is shown in Figure \ref{fig:BNE_resonance}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE30000Contorno.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE30000Contorno.pdf}
     \caption[BNE with periodic boundary: time series.]{Time series for intruder horizontal position at different $\Gamma$ for system with pbc. The density $\rho_I/\rho_g$ = 1, with $\rho_I$ the density of the intruder and $\rho_g$ the density of the media. The value of $\omega$ = 0.213. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE30000_Contorno}
 \end{figure}
 
     In Figure \ref{fig:BNE30000_Contorno}, we see that accelerations less than gravity do not cause the intruder to ascend, while accelerations close to gravity have a slow, jumping ascent. Because there are no sidewalls, convection currents do not form in the system, which causes the intruder to reach the top and not descend any further. 
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{04-figuras/BNE_ResonancePBC.pdf}
+    \includegraphics[width=0.7\textwidth]{04-figuras/BNE_ResonancePBC.pdf}
     \caption[BNE with periodic boundary: resonance.]{Intruder ascent rate $v$ curves for various normalized external accelerations $ \Gamma $, for the pbc case. $\Gamma = 1.15$ and $2500$ grains is in $\textcolor{black}{\blacksquare}$, $\Gamma = 1.25$ and $2500$ grains is in $\textcolor{red}{\bullet}$, $\Gamma = 1.40$ and $2500$ grains is in $\textcolor{green}{\blacktriangle}$, $\Gamma = 1.50$ and $2500$ grains is in $\textcolor{blue}{\blacktriangledown}$, $\Gamma = 1.25$ and $1875$ grains is in $\textcolor{cyan}{\Diamondblack}$, all with $37.5d$ wide. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE_resonance}
 \end{figure}
@@ -119,14 +123,14 @@ that we have used to fit the data in Figure \ref{fig:BNE_resonance}. Note the be
 
     The data could be collapsed around the fitted parameter $\omega_0$ and results in the curve shown in Figure \ref{fig:BNE_collapse}. The fitting parameters are shown in Figure \ref{fig:BNE_fit_parameters}. Even harder grains obeys this trend. The dynamics of the resonance does not follow exactly the linear approximation, as we can observe in log-log scale, but near the peak the adjust is good.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{04-figuras/BNE_Collapse.pdf}
     \caption[BNE with periodic boundary: resonance collapse.]{Collapse of the measured values. The data points are collapsed for all simulations with pbc. The fit can cover the ascent rate for different parameters, like stiffness $k_n$, normalized acceleration $\Gamma$, and the column above the intruder $h$. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
     \label{fig:BNE_collapse}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{04-figuras/BNE_Fit.pdf}
     \caption[BNE with periodic boundary: resonance fitting parameters.]{Fit of the parameters of using Equation (\ref{equ:TF}). In (a), the fitted natural frequency $\omega_0$ shows little dependence with $\Gamma$. In (b), the dissipation parameter shows agreement within the error bars to a constant value. Figure also present in \cite{Large-deviation_quantification_of_boundary_conditions_on_the_Brazil_nut_effect}.}
@@ -135,7 +139,7 @@ that we have used to fit the data in Figure \ref{fig:BNE_resonance}. Note the be
 
     The damping effect $\zeta$ in the fit does not relate to the damping factor $\gamma$ (or restitution coefficient $\epsilon$) of the grains contact, once the $\gamma$ is critical and would lead to dissipation of energy enough to resonance does not happen in the contact interaction. A further investigation into this system linking force balance or energy balance to the proposed resonance is needed. We propose a scale in the frequency $\omega \propto \sqrt{k_n^3}/h$ while the ascent rate $v \propto \frac{d}{h g}\left(\sqrt{\frac{k_n/m}{\Gamma}}\right)^3$, where $k_n$ is the stiffness of the grains, $h$ is the difference between the top layer of grains and the intruder position, $d$ is the grain diameter, $g$ is the gravity, $m$ is the mass of the grains, and $\Gamma$ is the dimensionless shaken acceleration compared to the gravity.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.65\linewidth]{04-figuras/BNE_PBC25.pdf} \\
     \includegraphics[width=0.65\linewidth]{04-figuras/BNE_PBC37.pdf}
@@ -145,7 +149,7 @@ that we have used to fit the data in Figure \ref{fig:BNE_resonance}. Note the be
 
     And at least comparison in Figure \ref{fig:BNE_pbc}, another exploration on the parameters: width of 25$d$ and different number of grains in width of 37.5$d$, all in pbc.
 
-    To reinforce the idea of the resonance, we analyse the fluctuation properties of the ratchet effect using Large Deviation Function (LDF) \cite{Symmetry_properties_of_the_large-deviation_function_of_the_velocity_of_a_self-propelled_polar_particle, Large_Deviations_in_Physics}. We quantify the fluctuations of the ascent rate distribution of the intruder measuring the normalized  $W_{\tau}$ as:
+    To reinforce the idea of the resonance, we analyze the fluctuation properties of the ratchet effect using Large Deviation Function (LDF) \cite{Symmetry_properties_of_the_large-deviation_function_of_the_velocity_of_a_self-propelled_polar_particle, Large_Deviations_in_Physics}. We quantify the fluctuations of the ascent rate distribution of the intruder measuring the normalized  $W_{\tau}$ as:
 %
 \begin{equation}
     W_{\tau}(t) = \frac{1}{\tau} \int_t^{t+\tau} \frac{v(t')}{\left<v\right>} dt'~, 
@@ -157,9 +161,11 @@ where $v(t)$ is the intruder vertical velocity at time $t$ and $\left< \cdot \ri
     RF(W_\tau) = -\lim_{\tau \rightarrow \infty} \frac{1}{\tau} \ln P(W_\tau)~.
 \end{equation}
 
+    In the case of BNE, the characteristic of the ratcheted motion due to the vibrations drives the intruder a ``self-propelled'' motion in the direction against to gravity. The LDF quantify the behavior tails in the probability distribution, and with it we can differentiate the fw from pbc. The LDF can be applied since we have nonequilibrium fluctuations from the insertion of energy coming from the agitation, balanced by the dissipation in the grains, due to friction and the damping coefficient.
+
     We could collapse the curves for long range integration times, when we can see the BNE regime acting in the system. The short time integration did not collapse, once the predominant dynamic is the external oscillation. Figure \ref{fig:LDFgamma} shows the LDF in fw and pbc. When fw are in play, the asymmetry between falling and rising is pronounced, shown with the metric $P(W_{\tau})$ in Figure \ref{fig:LDFgamma}(b). On the other hand, when pbc is consider, the asymmetry of upward and downward is only observed on a high value of $\tau$, Figure \ref{fig:LDFgamma}(d). The $RF$ reaches its value in small $W_{\tau}$ for fw, Figure \ref{fig:LDFgamma}(a), while only long values of $W_{\tau}$ exhibit larger jumps in pbc.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.65\linewidth]{04-figuras/BNE_LDF_FW.pdf} \\
     \includegraphics[width = 0.65\linewidth]{04-figuras/BNE_LDF_PBC.pdf}

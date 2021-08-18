@@ -16,9 +16,9 @@
         \vec{F}_{i} = \nabla \mathcal{L} = -\nabla \mathcal{V},
     \end{empheq}
 \end{subequations}
-where $\mathcal{L}$ represents the Lagrangian function that governs the dynamics of the system, $\mathcal{T}$ the kinetic energy, $\mathcal{V}$ the potential energy, $k$ the number of generalized coordinates of the system, $q_{k}$ the generalized coordinates, $\dot{q_{k}}$ the generalized velocities, $\vec{F}_{i}$ the force exerted on the particle $i$ originated by the gradient of the potential $\mathcal{V}$. 
+where $\mathcal{L}$ represents the Lagrangian function that governs the dynamics of the system, $\mathcal{T}$ the kinetic energy, $\mathcal{V}$ the potential energy, $k$ the number of generalized coordinates of the system, $q_{k}$ the generalized coordinates, $\dot{q_{k}}$ the generalized velocities, $\vec{F}_{i}$ the force exerted on the particle $i$ originated by the gradient of the potential $\mathcal{V}$. The disadvantage of this formulation is that only conservative forces are expressed due to the Lagrangian formulation. To solve this issue, we use the force description instead of the potential and kinetic energy.
 
-    Other references \cite{Dissertacao, Abraao-Dissertacao, Caio-Tese, Srdjan-Tese, Felipe-Tese, Nathalia-Dissertacao, Leticia-Dissertacao, Fabiola-Dissertacao, Luding-Tese, Caio-Dissertacao, Bouzid-Tese, Wassgren-Tese, Computational_Granular_Dynamics} use the model directly from the acting forces about each element.
+    Other references \cite{Abraao-Dissertacao, Caio-Tese, Srdjan-Tese, Felipe-Tese, Nathalia-Dissertacao, Leticia-Dissertacao, Fabiola-Dissertacao, Dissertacao, Luding-Tese, Caio-Dissertacao, Bouzid-Tese, Wassgren-Tese, Computational_Granular_Dynamics} use the model directly from the acting forces about each element.
 
 \section{Equations of motion}
     To carry out the simulation, the set of Equations \ref{equ:movimento} must be satisfied, which takes into account Newton's laws of motion. Thus, there is information on the agents' states as a function of time. 
@@ -36,12 +36,12 @@ where $\mathcal{L}$ represents the Lagrangian function that governs the dynamics
         \label{equ:posicao_angular}
         \theta^{k}_{i}(t) &= \theta^{k}_{i}(0) + \int_{0}^{t} \vec{\omega}^{k}_{i}(t) dt,\\
         \label{equ:velocidade_angular}
-        \vec{\omega}^{k}_{i}(t) &= \vec{\omega}^{k}_{i}(0) + \int_{0}^{t} \vec{\alpha}^{k}_{i}(t) dt,\\
+        \vec{\omega}^{k}_{i}(t) &= \vec{\omega}^{k}_{i}(0) + \int_{0}^{t} \vec{\alpha}^{\;k}_{i}(t) dt,\\
         \label{equ:aceleracao_angular}
-        \vec{\alpha}^{k}_{i}(t) &= {I^{k}_{i}}^{-1} \sum_{j} \vec{\tau}^{k}_{i,j}(t),
+        \vec{\alpha}^{\;k}_{i}(t) &= {I^{k}_{i}}^{-1} \sum_{j} \vec{\tau}^{\;k}_{i,j}(t),
     \end{empheq}
 \end{subequations}
-where $i$ is the i-th particle of the system, $\vec{r}_{i}(t)$ is the position vector of the center of mass of the body $i$ at the instant of time $t$, $\vec{v}_{i}(t)$ or $\vec{\dot{r}}_{i}(t)$ is the velocity vector of the center of mass of the body, $\vec{a}_{i}(t)$ or $\vec{\dot{v}}_{i}(t)$ or $\vec{\ddot{r}}_{i}(t)$ is the vector of accelerations of the center of mass of the body, $\vec{F}_{i,j}(t)$ is the component of the force that the center of mass of the body suffers from interacting with another body or field $j$, $m_{i}$ is the body mass, $\theta^{k}_{i}(t)$ is the basis of the body rotation coordinates expressed in the system's $k$ basis, $\vec{\omega}^{k}_{i}(t)$ is the pseudovector of angular velocities of the body expressed on the basis $k$ of the system, $\vec{\alpha}^{k}_{i}(t)$ is the pseudovector of angular accelerations of the body, ${I^{k}_{i}}^{-1}$ is the inverse of the inertia tensor of the body and $\vec{\tau}^{k}_{i,j}(t)$ is the torque vector that the body suffers from interacting with another body or field. Remembering that the relationship between torque and the force that causes it can be described by the Equation \ref{equ:torque}:
+where $i$ is the i-th particle of the system, $\vec{r}_{i}(t)$ is the position vector of the center of mass of the body $i$ at the instant of time $t$, $\vec{v}_{i}(t)$ or $\vec{\dot{r}}_{i}(t)$ is the velocity of the center of mass of the body, $\vec{a}_{i}(t)$ or $\vec{\dot{v}}_{i}(t)$ or $\vec{\ddot{r}}_{i}(t)$ is the acceleration of the center of mass of the body, $\vec{F}_{i,j}(t)$ is the component of the force that the center of mass of the body suffers from interacting with another body or field $j$, $m_{i}$ is the body mass, $\theta^{k}_{i}(t)$ is angular position coordinates expressed in the system's $k$ basis, $\vec{\omega}^{k}_{i}(t)$ is the pseudovector of angular velocities of the body expressed on the basis $k$ of the system, $\vec{\alpha}^{k}_{i}(t)$ is the pseudovector of angular accelerations of the body, ${I^{k}_{i}}^{-1}$ is the inverse of the inertia tensor of the body and $\vec{\tau}^{k}_{i,j}(t)$ is the torque vector that the body suffers from interacting with another body or field. Remembering that the relationship between torque and the force that causes it can be described by the Equation \ref{equ:torque}:
 \begin{equation}
     \label{equ:torque}
     \vec{\tau}_{i,j}(t) = \vec{\chi}_{i,j}(t) \times \vec{F}_{i,j}(t),
@@ -58,7 +58,7 @@ where the vector $\vec{\tau}_{i,j}(t)$ is the torque on the particle $i$ caused 
 \label{subsubchap:Reologia}
     The contact forces model between grains we used to simulate granular materials was the rheological model proposed by Kelvin-Voigt \cite{Kelvin, Voigt}. Kelvin-Voigt rheology models the contact force between two grains by a spring and a damper in parallel in the normal direction of contact, as exemplified in Figure \ref{fig:forcas}. The normal spring represents the elastic contribution of the material, related to the Young's modulus, while the normal damper has the function of dissipate the energy in the inelastic collision between the grains. Additionally, a tangential spring is inserted in the tangential direction to play the role of the Coulomb friction. A model proposed in \cite{Caio-Tese} adds a damper-like element in parallel to the tangential spring, modelling the rolling resistance. We chose to use circular geometry for the grains. In consequence of the circular geometry, all angular momentum variation is caused by torque due to tangential force.
 
-\begin{figure}
+\begin{figure}[H]
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Modelo_Forcas.png}
@@ -101,11 +101,11 @@ where $\vec{F}_{i,j}^{am}$ is the normal damping force that the body $j$ causes 
     The damping constant is directly linked to the restitution coefficient and can be used equivalently through the identities shown in the set of Equations \ref{equ:restituicao}. Some authors use the restitution coefficient in simulations, such as \cite{Srdjan-Tese, Luding-Tese, Computational_Granular_Dynamics}. In this thesis we will use the damping coefficient.
 
 \begin{subequations}
-    \label{equ:restituicao}
     \begin{empheq}[left={}]{align}
         \epsilon &= \exp\left(\frac{-\pi}{\sqrt{\frac{4k_{n}m}{\gamma^2}-1}}\right),\\
         \gamma &= \sqrt{\frac{4k_{n}m}{\left(\frac{\pi}{\ln\left(\epsilon\right)}\right)^2+1}},
     \end{empheq}
+    \label{equ:restituicao}
 \end{subequations}
 where $\epsilon$ is the restitution coefficient, $\gamma$ is the damping coefficient, $k_{n}$ is the stiffness related to the elasticity of the material and $m$ is the reduced mass $m=\frac{m_{i}m_{j}}{m_{i}+m_{j}}$.
 
@@ -130,7 +130,7 @@ where $\vec{F}_{i,j}^{at}$ is the friction force between the bodies $i$ and $j$,
 
     We chose to model static and dynamic friction coefficient to be a single value for simplicity, presented the friction coefficient $\mu$. Figure \ref{fig:atrito} describe the Coulomb friction we use in the simulations.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{04-figuras/Atrito.pdf}
     \caption[Friction.]{Friction versus relative velocity between contact. Figure taken from \cite{Caio-Tese}.}
@@ -141,11 +141,11 @@ where $\vec{F}_{i,j}^{at}$ is the friction force between the bodies $i$ and $j$,
 \label{subsubchap:Gravidade}
     For this model, we assume that the gravitational force is a constant. For convenience, we normalize gravity as a unit value.
 
-\subsection{The external force: The vibration}
+\subsubsection{The external force: The vibration}
     In the BNE problems, vibration must be present to agitate grains. One way to impose the vibration is to modulate an oscillatory force in the base where grains are. We chose to impose the variation in the position of walls instead of impose this variation in the force that sustains the walls.
 
 \subsection{Temporal discretization}
-    For the computational simulation of solid bodies, the kinematics equations must be rewritten as Taylor series expansions, and we chose the interpolating the velocity equation system by the algorithm known as Velocity Verlet \cite{Verlet, Computer_Simulation_of_Liquids}. The equations of motion discretized in time, as a function of the time step $\Delta t$, become as in the set of equations \ref{equ:movimento_discreto}:
+    For the computational simulation of solid bodies, the kinematics equations must be rewritten as Taylor series expansions, and we chose the interpolating the velocity equation system by the algorithm known as Velocity Verlet \cite{Verlet, Computer_Simulation_of_Liquids}. The equations of motion discretized in time, as a function of the time step $\Delta t$, become as in the set of Equations \ref{equ:movimento_discreto}:
 \begin{subequations}
     \label{equ:movimento_discreto}
     \begin{empheq}[left={Translational}\empheqlbrace]{align}
@@ -167,7 +167,7 @@ where $\vec{F}_{i,j}^{at}$ is the friction force between the bodies $i$ and $j$,
 \end{subequations}
 where $i$ is the index of the moving body, $j$ is the index of the body in contact with the body $i$, $n$ is the time step, $\vec{r}$ is the position of the body, $\vec{v}$ is the velocity of the body, $\vec{a}$ is the acceleration of the body, $\Delta t$ is the size of the time step, $\vec{F}_{i,j}$ is the contact force between the bodies $i$ and $j$, $\vec{F}_{ext}$ are the external forces, such as gravity, $m$ is the mass of the body, $\theta$ is the angular position of the body, $\vec{\omega}$ is the angular velocity of the body, $\vec{\alpha}$ is the angular acceleration of the body, $\vec{\tau}$ is the torque on the body, $I$ is the moment of inertia of the body. 
 
-    The set of Equations \ref{equ:movimento_discreto} is written for the 2D system, since there is only one degree of freedom for the rotation, and consequently all equations are written as a function of a single parameter. The velocity approximation as the weighting between the accelerations in the current and future instants of time is the key to the minimization of the imprecision generated by the discretization \cite{Computer_Simulation_of_Liquids}.
+    The set of Equations \ref{equ:movimento_discreto} is written for the 2D system, since there is only one degree of freedom for the rotation, and consequently all equations are written as a function of a single parameter. The velocity approximation as the weighting between the accelerations in the current and future instants of time is the key to the minimization of the imprecision generated by the discretization \cite{Computer_Simulation_of_Liquids}. The formulation presented here is the 3$^\textrm{rd}$ order Gear Predictor-Corrector with the Velocity Verlet, and is equivalent to use the Runge-Kutta (Annex \ref{sec:RK}).
 
 \section{Algorithm}
     In addition to the equations that govern the system, a series of procedures must be carried out so that the simulation can take place. Each of these steps are essential for the simulation to take place, and are dependent on each other. The Algorithm \ref{alg:MD} determines the routines for executing the simulation. We use the 3rd order Gear Predictor-Corrector with the Velocity Verlet to perform the simulations \cite{Computer_Simulation_of_Liquids}.
@@ -183,7 +183,7 @@ where $i$ is the index of the moving body, $j$ is the index of the body in conta
 
 \input{07-algoritmos/vizinhos.tex}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width = 0.40\textwidth]{04-figuras/Vizinhos.tikz}
     \caption[Neighbor search.]{The neighbour search in Algorithm \ref{alg:vizinhos} occurs between bodies with their immediate adjacent neighborhood region. Figure taken from \cite{Dissertacao}.}
@@ -213,9 +213,9 @@ where $i$ is the index of the moving body, $j$ is the index of the body in conta
 \input{07-algoritmos/corretor.tex}
 
 \section{Important parameters}
-    Due to the presented force model, some parameters are important for the simulations. As they are governed by difference equations as a function of the temporal parameter, some criteria must be obeyed for the simulation to be stable. These conditions are related to the error propagation when continuous equations are transformed in their discrete version. One of the parameters is the time constant $\Delta t$, which in our simulations has a direct relationship with the oscillation period of the spring mass model (Kelvin-Voigt rheology), given by $\Delta t = \xi \sqrt{m_{min}/k_{n}}$, where $\xi$ is an adjustment value, $m_{min}$ is the smallest mass of the system, and $k_{n}$ is the spring constant. The factors that stabilize the simulations, they must have at least $\xi < $1/10 \cite{Dissertacao, Caio-Tese, Computer_Simulation_of_Liquids}. In this thesis we will use the factor of $1/100$ for BNE systems. 
+    Due to the presented force model, some parameters are important for the simulations. As they are governed by difference equations as a function of the temporal parameter, some criteria must be obeyed for the simulation to be stable. These conditions are related to the error propagation when continuous equations are transformed in their discrete version. One of the parameters is the time constant $\Delta t$, which in our simulations has a direct relationship with the oscillation period of the spring mass model (Kelvin-Voigt rheology), given by $\Delta t = \xi \sqrt{m_{min}/k_{n}}$, where $\xi$ is an discretization factor, $m_{min}$ is the smallest mass of the system, and $k_{n}$ is the spring constant. The factors that stabilize the simulations, they must have at least $\xi < $1/10 \cite{Dissertacao, Caio-Tese, Computer_Simulation_of_Liquids}. In this thesis we will use the factor of $1/100$ for BNE systems. 
 
-    Another important parameter is the damping factor $\gamma$, or the restitution coefficient $\epsilon$. Due to the dissipative nature of granular materials, $\epsilon \simeq 0$, which approximates $\gamma \simeq 2\sqrt{k_{n}{m}_{min}}$, because we will have critical regimes in the spring mass equation when we use the smallest mass of the two bodies, and for all others, the damping will be subcritical \cite{Bouzid-Tese, Luding-Tese}. 
+    Another important parameter is the damping factor $\gamma$, or the restitution coefficient $\epsilon$. Due to the dissipative nature of granular materials, $\epsilon \simeq 0$, which approximates $\gamma \simeq 2\sqrt{k_{n}{m}_{min}}$ (set of Equations \ref{equ:restituicao}), because we will have critical regimes in the spring mass equation when we use the smallest mass of the two bodies, and for all others, the damping will be subcritical \cite{Bouzid-Tese, Luding-Tese}. 
 
     We model the walls for the BNE problem as smooth. The technique we use is to create a virtual body that has only the fixed component that it does a boundary, while it is free to move in the other direction, coinciding to be in the closest position of the free bodies.
 
