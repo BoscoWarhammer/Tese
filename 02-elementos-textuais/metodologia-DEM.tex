@@ -145,7 +145,7 @@ where $\vec{F}_{i,j}^{at}$ is the friction force between the bodies $i$ and $j$,
     In the BNE problems, vibration must be present to agitate grains. One way to impose the vibration is to modulate an oscillatory force in the base where grains are. We chose to impose the variation in the position of walls instead of impose this variation in the force that sustains the walls.
 
 \subsection{Temporal discretization}
-    For the computational simulation of solid bodies, the kinematics equations must be rewritten as Taylor series expansions, and we chose the interpolating the velocity equation system by the algorithm known as Velocity Verlet \cite{Verlet, Computer_Simulation_of_Liquids}. The equations of motion discretized in time, as a function of the time step $\Delta t$, become as in the set of Equations \ref{equ:movimento_discreto}:
+    For the computational simulation of solid bodies, the kinematics equations must be rewritten as Taylor series expansions, and we chose the interpolating the velocity equation system by the algorithm known as Velocity Verlet \cite{Computer_Simulation_of_Liquids, Verlet}. The equations of motion discretized in time, as a function of the time step $\Delta t$, become as in the set of Equations \ref{equ:movimento_discreto}:
 \begin{subequations}
     \label{equ:movimento_discreto}
     \begin{empheq}[left={Translational}\empheqlbrace]{align}
@@ -219,4 +219,4 @@ where $i$ is the index of the moving body, $j$ is the index of the body in conta
 
     We model the walls for the BNE problem as smooth. The technique we use is to create a virtual body that has only the fixed component that it does a boundary, while it is free to move in the other direction, coinciding to be in the closest position of the free bodies.
 
-    In the next chapter we will describe the Brazil nut Effect (BNE) and how we set up the simulation that leads to this effect.
+    In the next chapter we will describe the Brazil Nut Effect (BNE) and how we set up the simulation that leads to this effect.

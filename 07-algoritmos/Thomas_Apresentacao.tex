@@ -1,0 +1,18 @@
+\begin{algorithm}[H]
+    \SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+    \Input{fluid velocity profile, fluid pressures due to presence of grains, time step $\Delta t$ and space step $\Delta z$}
+    \Output{fluid state to the next time step}
+    $\lambda \gets \nu \Delta t / (\Delta z)^2$\;
+    $\alpha_1 \gets 0$\;
+    $\beta_1 \gets 0$\;
+    \For{$k \gets 2$ to K-1 by 1}{
+        $\alpha_k \gets -\lambda/(1+2\lambda+\lambda \alpha_{k-1})$\;
+        $\beta_k \gets ({U_x}_{k}^{n}-\Delta t {f_{x}}_{k}^{n} \frac{\phi}{1-\phi}/\rho^f+\lambda \beta_{k-1})/(1+2\lambda +\lambda \alpha_{k-1})$\;
+    }
+    ${U_x}_{K}^{n+1} \gets {U_x}_{K}^{n}+\Delta t \tau_{*} ({U_x}_{K-2}^{n}-{U_x}_{K-3}^{n}) / \Delta z$\;
+    \For{$k \gets$ K-1 to 2 by -1}{
+        ${U_x}_{k}^{n+1} \gets \beta_k -\alpha_k {U_x}_{k}^{n}$\;
+    }
+    \caption[Thomas' algorithm.]{Thomas algorithm adapted to solve the fluid velocity.}
+    \label{alg:Thomas}
+\end{algorithm}

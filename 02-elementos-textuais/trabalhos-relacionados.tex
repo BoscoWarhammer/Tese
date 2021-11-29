@@ -11,7 +11,7 @@ Inelastic collision occurs when two or more grains collide losing part of their 
 \section{Introduction}
 \label{subsection:Teoria}
 
-    Examples of granular materials includes sand, stones, soils, drugs, ores, grain foods (rice, corn, soybeans \textit{etc}.), even the asteroid belt and Saturn's rings. The sand alone constitutes 10\% of the materials on surface of planet Earth. Besides that, it is estimated that the second most used material in industries are granular materials, using approximately 10\% of all the energy on the planet, whether in extraction, transport, or processing, with the most used material being water \cite{Sands_Powders_and_Grains}.
+    Examples of granular materials includes sand, stones, soils, drug pills, ores, grain foods (rice, corn, soybeans \textit{etc}.), even the asteroid belt and Saturn's rings. The sand alone constitutes 10\% of the materials on surface of planet Earth. Besides that, it is estimated that the second most used material in industries are granular materials, using approximately 10\% of all the energy on the planet, whether in extraction, transport, or processing, with the most used material being water \cite{Sands_Powders_and_Grains}.
 
 \begin{figure}[H]
     \centering
@@ -24,7 +24,7 @@ Inelastic collision occurs when two or more grains collide losing part of their 
     \begin{minipage}{.45\linewidth}
         \centering
         \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Medicamento.png}
-        \subcaption{Drugs.}
+        \subcaption{Drug pills.}
         \label{subfig:exemplo_medicamento}
     \end{minipage}
     \begin{minipage}{.275\linewidth}
@@ -53,13 +53,13 @@ Inelastic collision occurs when two or more grains collide losing part of their 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{04-figuras/Exemplo_Fases.png}
-    \caption[Granular phases.]{Example of three granular phases according their kinetic energy. Dashed line is a proposition of the phase-like separations. The gas-like, refereed as gas in the Figure, phase is much more agitated and the contact between grains in this region is scarce, compared to the other phases-like. The liquid-like phase, refereed as liquid in the Figure, is moving in layers, and grains are sliding each other. The solid-like phase, refereed as solid in the Figure, is an immobile region that grains are in contact each other and the contact does not change over time. Figure taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
+    \caption[Granular phases.]{Example of three granular phases according their kinetic energy. Dashed line is a proposition of the phase-like separations. The gas-like phase, refered as gas in the Figure, is much more agitated and the contact between grains in this region is scarce, compared to the other phases-like. The liquid-like phase, refereed as liquid in the Figure, is moving in layers, and grains are sliding each other. The solid-like phase, refereed as solid in the Figure, is an immobile region that grains are in contact each other and the contact does not change over time. Figure taken from \cite{Granular_Media_Between_Fluid_and_Solid}.}
     \label{fig:exemplo_fases}
 \end{figure}
 
-    A differentiation between granular systems can be a direct result of the interaction forces between grains. Systems that have only repulsive interactions are called dry granular, while wet granules have van der Waals forces in grain-to-grain interactions. In this thesis, we will only consider repulsive contact interactions, although in some cases, there is a fluid surrounding the material. We consider that all the material that is involved by the fluid does not suffer forces of attraction, and therefore, van der Waals forces are not included in the interaction between the grains.
+    A differentiation between granular systems can be a direct result of the interaction forces between grains. Systems that have only repulsive interactions are called dry granular, while wet granules have van der Waals forces in grain-to-grain interactions. In this thesis, we will only consider repulsive contact interactions, although, in some cases, there is a fluid surrounding the material. We consider that all the material that is involved by the fluid does not suffer forces of attraction, and therefore, van der Waals forces are not included in the interaction between the grains.
 
-\section{Fenomenology}
+\section{Phenomenology}
 \label{subchap:Fenomenologia}
     Perhaps the first image related to granular materials remit to the sand pile. In this case, a static pile of sand is heaped on a surface. In a pile like the one shown in Figure \ref{fig:angulo_repouso}, the deposition of the grains forms an angle $\theta _m$ as large as possible, called the angle of movement, and when more material is placed on the pile, the upper layers of the pile run down to the base, restoring the angle to the lowest value $\theta _r$, called the angle of repose \cite{Sands_Powders_and_Grains, Granular_Physics}. The rearrangement of the sand pile after the avalanche\footnote{Avalanche is the process phenomena that dropping some few grains in a pile part of the surface slides.} can be understood as an example of self-organized criticality in granular materials. A good approximation to the angle of repose is given by:
     \begin{equation}
@@ -68,7 +68,7 @@ Inelastic collision occurs when two or more grains collide losing part of their 
     \end{equation}
 where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static friction between grains.
 
-    A system which has no central controller, governed by various agents that interact with rules known in the interaction of agents, and exhibit unforeseen property feature a Complex System. A characteristic property of Complex Systems and granular materials is self-organization. Some authors \cite{Avalanche_Dynamics_in_a_Pile_of_Rice, Avalanche_Prediction_in_a_Self-Organized_Pile_of_Beads, Mixing_and_Segregation_of_Granular_Materials, Measuring_the_flowing_properties_of_powders_and_grains, Revisiting_localized_deformation_in_sand_with_complex_systems, Granular_matter_and_networks, Patterns_and_collective_behavior_in_granular_media, Florent-Tese} classify granular materials within the area of study Complex Systems.
+    A system which has no central controller, governed by various agents that interact each other with known rules, and show unforeseen property define a Complex System. A characteristic property of Complex Systems and granular materials is self-organization. Some authors \cite{Avalanche_Dynamics_in_a_Pile_of_Rice, Avalanche_Prediction_in_a_Self-Organized_Pile_of_Beads, Mixing_and_Segregation_of_Granular_Materials, Measuring_the_flowing_properties_of_powders_and_grains, Revisiting_localized_deformation_in_sand_with_complex_systems, Granular_matter_and_networks, Patterns_and_collective_behavior_in_granular_media, Florent-Tese} classify granular materials within the area of study Complex Systems.
 
 \begin{figure}[H]
     \centering
@@ -95,7 +95,7 @@ where $\theta$ is the angle of repose, and $\mu _s$ is the coefficient of static
     \label{fig:force_chain}
 \end{figure}
 
-    Force chain are important to understand the phenomenon that is present in the arching effect. Arches are collective structures that have mutual support, and, consequently, a chain of forces linking the entire structure, being able to support their own weight and that of all the grains above, preventing them from flowing. In the formation of arches, segregation effects can occur, as verified by Magalhães, C. \cite{Caio-Tese} and the flow regimes in a funnel reported by Magalhães, F. \cite{Felipe-Tese}. Figure \ref{fig:arch_chain} is an example of arch and its chain forces.
+    Force chains are important to understand the phenomenon that is present in the arching effect. Arches are collective structures that have mutual support, and, consequently, a chain of forces linking the entire structure, being able to support their own weight and that of all the grains above, preventing them from flowing. In the formation of arches, segregation effects can occur, as verified by Magalhães, C. \cite{Caio-Tese} and the flow regimes in a funnel reported by Magalhães, F. \cite{Felipe-Tese}. Figure \ref{fig:arch_chain} is an example of arch and its chain forces.
 
 \begin{figure}[H]
     \centering
